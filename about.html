@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+<title>About Voxylis Growth</title>
+<style>
+  :root {
+    --beige: #ffffff; --beige-2: #f4f5f7; --card: #ffffff;
+    --ink: #15192b; --ink-soft: #4d5167;
+    --royal: #2743c9; --royal-bright: #4766f0; --royal-deep: #141f63;
+    --royal-tint: rgba(39,67,201,0.10);
+    --line: rgba(21,25,43,0.12); --line-soft: rgba(21,25,43,0.07);
+    --cream: #f7f2e8; --cream-soft: rgba(248,244,236,0.86);
+    --f-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --f-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --maxw: 1120px; --r: 18px;
+    --shadow-sm: 0 1px 2px rgba(20,25,43,0.04), 0 6px 20px rgba(20,25,43,0.05);
+    --shadow-md: 0 2px 6px rgba(20,25,43,0.06), 0 20px 46px rgba(20,25,43,0.10);
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--f-body); background: var(--beige); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; }
+  .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(16px, 5vw, 48px); }
+  section { padding-block: clamp(64px, 9vw, 120px); }
+  h1, h2, h3 { font-family: var(--f-display); font-weight: 600; line-height: 1.12; text-wrap: balance; margin: 0; letter-spacing: -0.015em; font-optical-sizing: auto; }
+  p { margin: 0; }
+  a { color: inherit; }
+  :focus-visible { outline: 2.5px solid var(--royal); outline-offset: 3px; border-radius: 4px; }
+  ::selection { background: rgba(39,67,201,0.20); color: var(--ink); }
+  html { scrollbar-color: rgba(39,67,201,0.55) var(--beige-2); }
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-track { background: var(--beige-2); }
+  ::-webkit-scrollbar-thumb { background: rgba(39,67,201,0.5); border-radius: 999px; border: 3px solid var(--beige-2); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--royal); }
+  input, textarea, select, button { accent-color: var(--royal); }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--royal); display: inline-flex; align-items: center; gap: 0.65rem; }
+  .eyebrow::before { content: ""; width: 26px; height: 1.5px; background: currentColor; opacity: 0.55; }
+  .lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 60ch; }
+
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--f-body); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em; padding: 0.95rem 1.7rem; border-radius: 999px; border: 1.5px solid transparent; cursor: pointer; text-decoration: none; transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease; white-space: nowrap; }
+  .btn-primary { background: var(--royal); color: #fff; box-shadow: 0 8px 22px rgba(10,14,40,0.22); }
+  .btn-primary:hover { background: var(--royal-bright); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(10,14,40,0.30); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--royal); color: var(--royal); transform: translateY(-2px); }
+  .btn-on-royal { background: var(--cream); color: var(--royal-deep); }
+  .btn-on-royal:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.22); }
+  .btn .arrow { display: inline-flex; align-items: center; transition: transform .18s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.82); backdrop-filter: saturate(140%) blur(12px); border-bottom: 1px solid var(--line-soft); }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--f-display); font-weight: 600; font-size: 1.3rem; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .brand .mark { width: 30px; height: 30px; flex-shrink: 0; }
+  .brand b { color: var(--royal); font-weight: 700; }
+  .nav-links { display: flex; align-items: center; gap: 1.6rem; }
+  .nav-links a { text-decoration: none; font-size: 0.92rem; font-weight: 500; color: var(--ink-soft); transition: color .15s; white-space: nowrap; }
+  .nav-links a:hover, .nav-links a.active { color: var(--royal); }
+  @media (max-width: 920px) { .nav-links { display: none; } }
+
+  /* page intro */
+  .intro { padding-top: clamp(48px, 7vw, 86px); }
+  .intro h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); margin-top: 0.8rem; }
+  .intro .lead { margin-top: 1.4rem; font-size: 1.18rem; }
+  .intro-banner { margin-top: clamp(2.2rem, 5vw, 3.4rem); border-radius: 22px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); line-height: 0; }
+  .intro-banner img { display: block; width: 100%; height: auto; }
+
+  .prose { max-width: 68ch; display: flex; flex-direction: column; gap: 1.2rem; }
+  .prose h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin-bottom: 0.2rem; }
+  .prose p { color: var(--ink-soft); font-size: 1.05rem; }
+  .prose p strong { color: var(--ink); font-weight: 600; }
+
+  .band-2 { background: var(--beige-2); }
+  .sec-head { max-width: 62ch; }
+  .sec-head h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); margin-top: 0.9rem; }
+  .sec-head p { margin-top: 1.1rem; color: var(--ink-soft); font-size: 1.06rem; max-width: 58ch; }
+
+  .values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 2.6rem; }
+  @media (max-width: 620px) { .values { grid-template-columns: 1fr; } }
+  .value { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r); padding: 1.7rem 1.6rem; box-shadow: var(--shadow-sm); transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease; }
+  .value:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+  .value .vico { width: 46px; height: 46px; border-radius: 50%; background: var(--royal-tint); display: grid; place-items: center; color: var(--royal); margin-bottom: 0.9rem; }
+  .value h3 { font-size: 1.25rem; }
+  .value p { color: var(--ink-soft); font-size: 0.96rem; margin-top: 0.5rem; }
+
+  /* closing CTA band */
+  .cta-band { background: radial-gradient(130% 150% at 12% 0%, #16247a 0%, var(--royal-deep) 50%, #0b1348 100%); color: var(--cream); text-align: center; }
+  .cta-band h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); color: #fff; }
+  .cta-band p { margin-top: 1rem; color: var(--cream-soft); font-size: 1.08rem; max-width: 52ch; margin-inline: auto; }
+  .cta-band .btn { margin-top: 2rem; }
+
+  footer { background: var(--beige-2); border-top: 1px solid var(--line-soft); padding-block: 3rem; }
+  .foot { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; }
+  .foot .brand { font-size: 1.15rem; margin-bottom: 0.6rem; }
+  .foot-tag { font-size: 0.88rem; color: var(--ink-soft); max-width: 40ch; }
+  .foot-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+  .foot-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.9rem; }
+  .foot-links a:hover { color: var(--royal); }
+  .foot-bottom { margin-top: 2rem; padding-top: 1.4rem; border-top: 1px solid var(--line-soft); font-size: 0.82rem; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+  /* --- premium motion: intro load + scroll reveal (JS-gated, reduced-motion safe) --- */
+  .has-reveal .intro h1, .has-reveal .intro .lead, .has-reveal .intro-banner { opacity: 0; transform: translateY(16px); animation: fadeUp .85s cubic-bezier(.2,.7,.2,1) forwards; }
+  .has-reveal .intro .lead { animation-delay: .16s; }
+  .has-reveal .intro-banner { animation-delay: .30s; }
+  @keyframes fadeUp { to { opacity: 1; transform: none; } }
+  .has-reveal .sec-head, .has-reveal .value, .has-reveal .prose {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .has-reveal .sec-head.in, .has-reveal .value.in, .has-reveal .prose.in { opacity: 1; transform: none; }
+  .has-reveal .values > :nth-child(2) { transition-delay: .08s; }
+  .has-reveal .values > :nth-child(3) { transition-delay: .16s; }
+  .has-reveal .values > :nth-child(4) { transition-delay: .24s; }
+
+  @media (prefers-reduced-motion: reduce) { .btn, .btn .arrow { transition: none; } }
+</style>
+<script>
+  (function () {
+    try {
+      var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if ((!mq || !mq.matches) && 'IntersectionObserver' in window) {
+        document.documentElement.className += ' has-reveal';
+      }
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Voxylis Growth home">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#2743c9"/><path d="M9 16h2.2l1.6-5 2.4 10 2.1-7 1.5 2h3.7" stroke="#f7f2e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Voxylis&nbsp;<b>Growth</b>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#services">What we do</a>
+      <a href="index.html#how">How it works</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary">Book a Discovery Call</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h1>We help growing companies grow through conversation.</h1>
+    <p class="lead">Voxylis Growth is a dedicated voice team of elite Philippine talent. We give ambitious companies the speed of a built in team, the warmth of people who genuinely care, and none of the overhead of building it alone.</p>
+    <div class="intro-banner">
+      <img src="img/about-hero.webp" width="1512" height="1008" alt="A bright modern office where professionals with headsets review growth dashboards together, with a city skyline behind them">
+    </div>
+  </div>
+</section>
+
+<section class="band-2">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Growth is won and lost in conversations.</h2>
+      <p>Voxylis Growth started from a simple belief. Growing companies lose more deals to slow, missed, and mishandled conversations than to almost anything else. A lead goes cold because no one followed up in time. A customer drifts away because a call went unanswered. A team gets so buried in the phone that the real work slows down.</p>
+      <p>We exist to close that gap. We bring together elite voice talent from the Philippines with the training, structure, and care to turn everyday conversations into growth. Our people are warm, sharp, and genuinely invested in the brands they represent.</p>
+      <p><strong>We are not a faceless vendor.</strong> We are a growth partner that plugs into your team and treats your customers as if they were our own. When you grow, we grow with you.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The values behind every call.</h2>
+      <p>These are not posters on a wall. They shape who we hire, how we train, and how we show up for you.</p>
+    </div>
+    <div class="values">
+      <div class="value">
+        <div class="vico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Partnership over transactions</h3>
+        <p>We win when you win. We build around your goals, not a quota, and we stay for the long run.</p>
+      </div>
+      <div class="value">
+        <div class="vico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.7 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg></div>
+        <h3>Quality in every voice</h3>
+        <p>We only place talent we would be proud to put in front of our own customers. No shortcuts.</p>
+      </div>
+      <div class="value">
+        <div class="vico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Speed with care</h3>
+        <p>Fast response never means rushed. Every conversation is handled with real attention.</p>
+      </div>
+      <div class="value">
+        <div class="vico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Honest and clear</h3>
+        <p>Plain reporting on the metrics that matter. No jargon, no vague promises, no surprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band-2">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Why the Philippines, and why it works.</h2>
+      <p>The Philippines is one of the most trusted homes for voice talent in the world. The English is neutral and warm, so customers across your markets understand and trust it instantly. Hospitality runs deep here, which means genuine care on every call is the default rather than something we have to coach in.</p>
+      <p>Just as important, this is a deep and educated talent pool where professionals treat voice work as a serious career. They stay, they grow, and they get better at representing your brand over time. We build coverage around your business hours, wherever your customers sit.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready to grow through better conversations?</h2>
+    <p>Book a short discovery call and we will map out what a dedicated voice team could do for your pipeline.</p>
+    <a href="index.html#contact" class="btn btn-on-royal">Book a Discovery Call <span class="arrow"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="index.html" class="brand" aria-label="Voxylis Growth home">
+          <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#2743c9"/><path d="M9 16h2.2l1.6-5 2.4 10 2.1-7 1.5 2h3.7" stroke="#f7f2e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Voxylis&nbsp;<b>Growth</b>
+        </a>
+        <p class="foot-tag">A dedicated voice team of elite Philippine talent, built for speed to lead.</p>
+      </div>
+      <div class="foot-links">
+        <a href="index.html#services">What we do</a>
+        <a href="index.html#how">How it works</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="index.html#contact">Book a call</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Voxylis Growth. Speed to lead.</span>
+      <span>Elite voice talent, from the Philippines to the world.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    if (!document.documentElement.classList.contains('has-reveal')) return;
+    var els = document.querySelectorAll('.sec-head, .value, .prose');
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+    setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 3500);
+  })();
+</script>
+
+</body>
+</html>

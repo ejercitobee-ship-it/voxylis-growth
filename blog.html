@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+<title>Voxylis Growth Blog</title>
+<style>
+  :root {
+    --beige: #ffffff; --beige-2: #f4f5f7; --card: #ffffff;
+    --ink: #15192b; --ink-soft: #4d5167;
+    --royal: #2743c9; --royal-bright: #4766f0; --royal-deep: #141f63;
+    --royal-tint: rgba(39,67,201,0.10);
+    --line: rgba(21,25,43,0.12); --line-soft: rgba(21,25,43,0.07);
+    --cream: #f7f2e8; --cream-soft: rgba(248,244,236,0.86);
+    --f-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --f-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --maxw: 1120px; --r: 18px;
+    --shadow-sm: 0 1px 2px rgba(20,25,43,0.04), 0 6px 20px rgba(20,25,43,0.05);
+    --shadow-md: 0 2px 6px rgba(20,25,43,0.06), 0 20px 46px rgba(20,25,43,0.10);
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--f-body); background: var(--beige); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; }
+  .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(16px, 5vw, 48px); }
+  section { padding-block: clamp(56px, 8vw, 104px); }
+  h1, h2, h3 { font-family: var(--f-display); font-weight: 600; line-height: 1.12; text-wrap: balance; margin: 0; letter-spacing: -0.015em; font-optical-sizing: auto; }
+  p { margin: 0; }
+  a { color: inherit; }
+  :focus-visible { outline: 2.5px solid var(--royal); outline-offset: 3px; border-radius: 4px; }
+  ::selection { background: rgba(39,67,201,0.20); color: var(--ink); }
+  html { scrollbar-color: rgba(39,67,201,0.55) var(--beige-2); }
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-track { background: var(--beige-2); }
+  ::-webkit-scrollbar-thumb { background: rgba(39,67,201,0.5); border-radius: 999px; border: 3px solid var(--beige-2); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--royal); }
+  input, textarea, select, button { accent-color: var(--royal); }
+  input, textarea { caret-color: var(--royal); }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--royal); display: inline-flex; align-items: center; gap: 0.65rem; }
+  .eyebrow::before { content: ""; width: 26px; height: 1.5px; background: currentColor; opacity: 0.55; }
+  .lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 60ch; }
+
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--f-body); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em; padding: 0.95rem 1.7rem; border-radius: 999px; border: 1.5px solid transparent; cursor: pointer; text-decoration: none; transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease; white-space: nowrap; }
+  .btn-primary { background: var(--royal); color: #fff; box-shadow: 0 8px 22px rgba(10,14,40,0.22); }
+  .btn-primary:hover { background: var(--royal-bright); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(10,14,40,0.30); }
+  .btn-on-royal { background: var(--cream); color: var(--royal-deep); }
+  .btn-on-royal:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.22); }
+  .btn .arrow { transition: transform .18s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.82); backdrop-filter: saturate(140%) blur(12px); border-bottom: 1px solid var(--line-soft); }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--f-display); font-weight: 600; font-size: 1.3rem; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .brand .mark { width: 30px; height: 30px; flex-shrink: 0; }
+  .brand b { color: var(--royal); font-weight: 700; }
+  .nav-links { display: flex; align-items: center; gap: 1.6rem; }
+  .nav-links a { text-decoration: none; font-size: 0.92rem; font-weight: 500; color: var(--ink-soft); transition: color .15s; white-space: nowrap; }
+  .nav-links a:hover, .nav-links a.active { color: var(--royal); }
+  @media (max-width: 920px) { .nav-links { display: none; } }
+
+  .intro { padding-top: clamp(48px, 7vw, 86px); padding-bottom: clamp(24px, 4vw, 40px); }
+  .intro h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
+  .intro .lead { margin-top: 1.4rem; font-size: 1.18rem; }
+  .intro-banner { margin-top: clamp(2.2rem, 5vw, 3.4rem); border-radius: 22px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); line-height: 0; }
+  .intro-banner img { display: block; width: 100%; height: auto; }
+
+  .posts { padding-top: clamp(16px, 3vw, 28px); }
+  .posts-title { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1.8rem; }
+  .post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+  @media (max-width: 860px) { .post-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .post-grid { grid-template-columns: 1fr; } }
+  .post {
+    background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
+    padding: 1.6rem 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; min-width: 0;
+    box-shadow: var(--shadow-sm); transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease, border-color .28s ease;
+  }
+  .post:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(39,67,201,0.2); }
+  .post-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+  .cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--royal); }
+  .soon { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); background: var(--beige-2); border: 1px solid var(--line); padding: 0.42rem 0.8rem; border-radius: 999px; white-space: nowrap; }
+  .post h3 { font-size: 1.28rem; margin-top: 0.2rem; }
+  .post p { font-size: 0.95rem; color: var(--ink-soft); }
+  .post .read { margin-top: auto; font-size: 0.85rem; font-weight: 600; color: var(--royal); padding-top: 0.6rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .post:hover .read svg { transform: translateX(3px); }
+  .post .read svg { transition: transform .18s ease; }
+
+  /* subscribe band */
+  .sub-band { background: radial-gradient(130% 150% at 12% 0%, #16247a 0%, var(--royal-deep) 50%, #0b1348 100%); color: var(--cream); }
+  .sub-inner { max-width: 620px; }
+  .sub-band .eyebrow { color: #c6cfff; }
+  .sub-band h2 { font-size: clamp(1.8rem, 3.8vw, 2.6rem); color: #fff; margin-top: 0.8rem; }
+  .sub-band p { margin-top: 1rem; color: var(--cream-soft); font-size: 1.05rem; }
+  .sub-form { display: flex; gap: 0.7rem; margin-top: 1.8rem; flex-wrap: wrap; }
+  .sub-form input { flex: 1 1 260px; min-width: 0; font-family: inherit; font-size: 0.98rem; color: var(--ink); padding: 0.9rem 1.1rem; border: 1.5px solid transparent; border-radius: 999px; background: #fff; }
+  .sub-form input:focus { outline: none; box-shadow: 0 0 0 3px rgba(198,207,255,0.5); }
+  .sub-note { margin-top: 0.9rem; font-size: 0.8rem; color: var(--cream-soft); }
+  .sub-ok { display: none; margin-top: 1rem; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); color: #fff; border-radius: 12px; padding: 0.9rem 1rem; font-size: 0.95rem; }
+
+  footer { background: var(--beige-2); border-top: 1px solid var(--line-soft); padding-block: 3rem; }
+  .foot { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; }
+  .foot .brand { font-size: 1.15rem; margin-bottom: 0.6rem; }
+  .foot-tag { font-size: 0.88rem; color: var(--ink-soft); max-width: 40ch; }
+  .foot-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+  .foot-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.9rem; }
+  .foot-links a:hover { color: var(--royal); }
+  .foot-bottom { margin-top: 2rem; padding-top: 1.4rem; border-top: 1px solid var(--line-soft); font-size: 0.82rem; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+  /* --- premium motion: intro load + scroll reveal (JS-gated, reduced-motion safe) --- */
+  .has-reveal .intro h1, .has-reveal .intro .lead, .has-reveal .intro-banner { opacity: 0; transform: translateY(16px); animation: fadeUp .85s cubic-bezier(.2,.7,.2,1) forwards; }
+  .has-reveal .intro .lead { animation-delay: .16s; }
+  .has-reveal .intro-banner { animation-delay: .30s; }
+  @keyframes fadeUp { to { opacity: 1; transform: none; } }
+  .has-reveal .posts-title, .has-reveal .post, .has-reveal .sub-inner {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .has-reveal .posts-title.in, .has-reveal .post.in, .has-reveal .sub-inner.in { opacity: 1; transform: none; }
+  .has-reveal .post-grid > :nth-child(3n+2) { transition-delay: .08s; }
+  .has-reveal .post-grid > :nth-child(3n+3) { transition-delay: .16s; }
+
+  @media (prefers-reduced-motion: reduce) { .btn, .btn .arrow { transition: none; } }
+</style>
+<script>
+  (function () {
+    try {
+      var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if ((!mq || !mq.matches) && 'IntersectionObserver' in window) {
+        document.documentElement.className += ' has-reveal';
+      }
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Voxylis Growth home">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#2743c9"/><path d="M9 16h2.2l1.6-5 2.4 10 2.1-7 1.5 2h3.7" stroke="#f7f2e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Voxylis&nbsp;<b>Growth</b>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#services">What we do</a>
+      <a href="index.html#how">How it works</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary">Book a Discovery Call</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h1>Ideas on growth, speed, and great conversations.</h1>
+    <p class="lead">Practical thinking on turning more leads into conversations, building a voice team customers trust, and growing your pipeline without losing the human touch. Fresh articles are on the way.</p>
+    <div class="intro-banner">
+      <img src="img/blog-hero.webp" width="1512" height="1000" alt="A bright marble desk with a laptop and tablet showing growth strategy and analytics, a notebook of strategic priorities, a coffee, and reading glasses">
+    </div>
+  </div>
+</section>
+
+<section class="posts">
+  <div class="wrap">
+    <h2 class="posts-title">Fresh thinking, coming soon</h2>
+    <div class="post-grid">
+      <article class="post">
+        <div class="post-top"><span class="cat">Speed to lead</span><span class="soon">Coming soon</span></div>
+        <h3>Why speed to lead decides who wins the deal</h3>
+        <p>The first real response often matters more than the best pitch. Here is how to answer faster than your competition, every time.</p>
+        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="post">
+        <div class="post-top"><span class="cat">Customer care</span><span class="soon">Coming soon</span></div>
+        <h3>Building a voice team customers actually love</h3>
+        <p>What separates a warm, trusted voice from a forgettable one, and how we train for it from day one.</p>
+        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="post">
+        <div class="post-top"><span class="cat">Inbound</span><span class="soon">Coming soon</span></div>
+        <h3>Turning everyday calls into real loyalty</h3>
+        <p>The small habits on inbound calls that make every customer feel genuinely looked after.</p>
+        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="post">
+        <div class="post-top"><span class="cat">Growth</span><span class="soon">Coming soon</span></div>
+        <h3>Scaling conversations without losing the human touch</h3>
+        <p>How to grow the number of conversations your business handles while keeping the quality high.</p>
+        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="post">
+        <div class="post-top"><span class="cat">Speed to lead</span><span class="soon">Coming soon</span></div>
+        <h3>The real cost of a missed call</h3>
+        <p>What quietly slips away when no one picks up, and a simple way to make sure that stops happening.</p>
+        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="post">
+        <div class="post-top"><span class="cat">Outbound</span><span class="soon">Coming soon</span></div>
+        <h3>Outbound that opens doors, not annoyance</h3>
+        <p>A respectful, human approach to outreach that books more meetings and protects your brand.</p>
+        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sub-band">
+  <div class="wrap sub-inner">
+    <h2>Be the first to read our playbook.</h2>
+    <p>Get new articles and practical tips on speed to lead and voice talent, straight to your inbox. No spam, just useful ideas.</p>
+    <form class="sub-form" id="sub-form" novalidate>
+      <input id="sub-email" name="email" type="email" placeholder="Your work email" required autocomplete="email">
+      <button type="submit" class="btn btn-on-royal">Subscribe</button>
+    </form>
+    <p class="sub-note">We send occasional updates and you can unsubscribe anytime.</p>
+    <div class="sub-ok" id="sub-ok">Thank you. You are on the list, we will be in touch soon.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="index.html" class="brand" aria-label="Voxylis Growth home">
+          <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#2743c9"/><path d="M9 16h2.2l1.6-5 2.4 10 2.1-7 1.5 2h3.7" stroke="#f7f2e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Voxylis&nbsp;<b>Growth</b>
+        </a>
+        <p class="foot-tag">A dedicated voice team of elite Philippine talent, built for speed to lead.</p>
+      </div>
+      <div class="foot-links">
+        <a href="index.html#services">What we do</a>
+        <a href="index.html#how">How it works</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="index.html#contact">Book a call</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Voxylis Growth. Speed to lead.</span>
+      <span>Elite voice talent, from the Philippines to the world.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('sub-form');
+    var ok = document.getElementById('sub-ok');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('sub-email').value.trim();
+      if (!email) { form.reportValidity(); return; }
+      try {
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: 'f5e1c514-d43c-440d-b505-ca843cbc6524',
+            subject: 'New Voxylis Growth Blog Subscriber',
+            from_name: 'Voxylis Growth Blog',
+            email: email
+          })
+        }).catch(function () {});
+      } catch (e) {}
+      if (ok) { ok.style.display = 'block'; }
+      form.querySelector('button[type=submit]').textContent = 'Subscribed';
+      form.querySelector('button[type=submit]').disabled = true;
+    });
+  })();
+
+  (function () {
+    if (!document.documentElement.classList.contains('has-reveal')) return;
+    var els = document.querySelectorAll('.posts-title, .post, .sub-inner');
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+    setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 3500);
+  })();
+</script>
+
+</body>
+</html>
