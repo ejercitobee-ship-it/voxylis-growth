@@ -44,8 +44,8 @@
   .lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 60ch; }
 
   .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--f-body); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em; padding: 0.95rem 1.7rem; border-radius: 999px; border: 1.5px solid transparent; cursor: pointer; text-decoration: none; transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease; white-space: nowrap; }
-  .btn-primary { background: var(--royal); color: #fff; box-shadow: 0 8px 22px rgba(10,14,40,0.22); }
-  .btn-primary:hover { background: var(--royal-bright); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(10,14,40,0.30); }
+  .btn-primary { background: var(--royal); color: #fff; box-shadow: 0 8px 22px rgba(0,0,0,0.20); }
+  .btn-primary:hover { background: var(--royal-bright); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.28); }
   .btn-on-royal { background: var(--cream); color: var(--royal-deep); }
   .btn-on-royal:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.22); }
   .btn .arrow { transition: transform .18s ease; }
@@ -59,7 +59,24 @@
   .nav-links { display: flex; align-items: center; gap: 1.6rem; }
   .nav-links a { text-decoration: none; font-size: 0.92rem; font-weight: 500; color: var(--ink-soft); transition: color .15s; white-space: nowrap; }
   .nav-links a:hover, .nav-links a.active { color: var(--royal); }
-  @media (max-width: 920px) { .nav-links { display: none; } }
+  .nav-toggle { display: none; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 10px; background: none; color: var(--ink); cursor: pointer; flex-shrink: 0; }
+  .nav-toggle .i-close { display: none; }
+  @media (min-width: 921px) { .nav-cta-mobile { display: none; } }
+  @media (max-width: 920px) {
+    .nav-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+    header.open .nav-toggle .i-open { display: none; }
+    header.open .nav-toggle .i-close { display: inline; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: var(--beige); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft);
+      padding: 0.4rem clamp(16px, 5vw, 48px) 1.3rem; box-shadow: var(--shadow-md);
+    }
+    header.open .nav-links { display: flex; }
+    .nav-links a { padding: 0.9rem 0; font-size: 1rem; border-bottom: 1px solid var(--line-soft); }
+    .nav-links > a.nav-cta-mobile { color: #fff; border-bottom: none; margin-top: 0.9rem; justify-content: center; padding: 0.95rem 1.7rem; }
+  }
 
   .intro { padding-top: clamp(48px, 7vw, 86px); padding-bottom: clamp(24px, 4vw, 40px); }
   .intro h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
@@ -77,15 +94,12 @@
     padding: 1.6rem 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; min-width: 0;
     box-shadow: var(--shadow-sm); transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease, border-color .28s ease;
   }
-  .post:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(39,67,201,0.2); }
+  .post:hover { box-shadow: var(--shadow-md); }
   .post-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
   .cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--royal); }
   .soon { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); background: var(--beige-2); border: 1px solid var(--line); padding: 0.42rem 0.8rem; border-radius: 999px; white-space: nowrap; }
   .post h3 { font-size: 1.28rem; margin-top: 0.2rem; }
   .post p { font-size: 0.95rem; color: var(--ink-soft); }
-  .post .read { margin-top: auto; font-size: 0.85rem; font-weight: 600; color: var(--royal); padding-top: 0.6rem; display: inline-flex; align-items: center; gap: 0.4rem; }
-  .post:hover .read svg { transform: translateX(3px); }
-  .post .read svg { transition: transform .18s ease; }
 
   /* subscribe band */
   .sub-band { background: radial-gradient(130% 150% at 12% 0%, #16247a 0%, var(--royal-deep) 50%, #0b1348 100%); color: var(--cream); }
@@ -98,11 +112,16 @@
   .sub-form input:focus { outline: none; box-shadow: 0 0 0 3px rgba(198,207,255,0.5); }
   .sub-note { margin-top: 0.9rem; font-size: 0.8rem; color: var(--cream-soft); }
   .sub-ok { display: none; margin-top: 1rem; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); color: #fff; border-radius: 12px; padding: 0.9rem 1rem; font-size: 0.95rem; }
+  .sub-error { display: none; margin-top: 0.7rem; font-size: 0.85rem; color: #ffd9d2; }
+  .sub-form input.invalid { box-shadow: 0 0 0 3px rgba(255,120,100,0.45); }
 
   footer { background: var(--beige-2); border-top: 1px solid var(--line-soft); padding-block: 3rem; }
   .foot { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; }
   .foot .brand { font-size: 1.15rem; margin-bottom: 0.6rem; }
   .foot-tag { font-size: 0.88rem; color: var(--ink-soft); max-width: 40ch; }
+  .foot-contact { font-size: 0.92rem; color: var(--ink-soft); margin-top: 0.7rem; }
+  .foot-contact a { color: var(--royal); text-decoration: none; font-weight: 600; }
+  .foot-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .foot-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
   .foot-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.9rem; }
   .foot-links a:hover { color: var(--royal); }
@@ -142,13 +161,15 @@
       <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#2743c9"/><path d="M9 16h2.2l1.6-5 2.4 10 2.1-7 1.5 2h3.7" stroke="#f7f2e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Voxylis&nbsp;<b>Growth</b>
     </a>
-    <nav class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><svg class="i-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="i-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <nav class="nav-links" id="navmenu">
       <a href="index.html#services">What we do</a>
       <a href="index.html#how">How it works</a>
       <a href="blog.html" class="active">Blog</a>
       <a href="about.html">About</a>
+      <a href="index.html#contact" class="btn btn-primary nav-cta-mobile">Book a Discovery Call</a>
     </nav>
-    <a href="index.html#contact" class="btn btn-primary">Book a Discovery Call</a>
+    <a href="index.html#contact" class="btn btn-primary nav-cta">Book a Discovery Call</a>
   </div>
 </header>
 
@@ -169,39 +190,27 @@
       <article class="post">
         <div class="post-top"><span class="cat">Speed to lead</span><span class="soon">Coming soon</span></div>
         <h3>Why speed to lead decides who wins the deal</h3>
-        <p>The first real response often matters more than the best pitch. Here is how to answer faster than your competition, every time.</p>
-        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </article>
+        <p>The first real response often matters more than the best pitch. Here is how to answer faster than your competition, every time.</p>      </article>
       <article class="post">
         <div class="post-top"><span class="cat">Customer care</span><span class="soon">Coming soon</span></div>
         <h3>Building a voice team customers actually love</h3>
-        <p>What separates a warm, trusted voice from a forgettable one, and how we train for it from day one.</p>
-        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </article>
+        <p>What separates a warm, trusted voice from a forgettable one, and how we train for it from day one.</p>      </article>
       <article class="post">
         <div class="post-top"><span class="cat">Inbound</span><span class="soon">Coming soon</span></div>
         <h3>Turning everyday calls into real loyalty</h3>
-        <p>The small habits on inbound calls that make every customer feel genuinely looked after.</p>
-        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </article>
+        <p>The small habits on inbound calls that make every customer feel genuinely looked after.</p>      </article>
       <article class="post">
         <div class="post-top"><span class="cat">Growth</span><span class="soon">Coming soon</span></div>
         <h3>Scaling conversations without losing the human touch</h3>
-        <p>How to grow the number of conversations your business handles while keeping the quality high.</p>
-        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </article>
+        <p>How to grow the number of conversations your business handles while keeping the quality high.</p>      </article>
       <article class="post">
         <div class="post-top"><span class="cat">Speed to lead</span><span class="soon">Coming soon</span></div>
         <h3>The real cost of a missed call</h3>
-        <p>What quietly slips away when no one picks up, and a simple way to make sure that stops happening.</p>
-        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </article>
+        <p>What quietly slips away when no one picks up, and a simple way to make sure that stops happening.</p>      </article>
       <article class="post">
         <div class="post-top"><span class="cat">Outbound</span><span class="soon">Coming soon</span></div>
         <h3>Outbound that opens doors, not annoyance</h3>
-        <p>A respectful, human approach to outreach that books more meetings and protects your brand.</p>
-        <span class="read">Read the article <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </article>
+        <p>A respectful, human approach to outreach that books more meetings and protects your brand.</p>      </article>
     </div>
   </div>
 </section>
@@ -214,6 +223,7 @@
       <input id="sub-email" name="email" type="email" placeholder="Your work email" required autocomplete="email">
       <button type="submit" class="btn btn-on-royal">Subscribe</button>
     </form>
+    <p class="sub-error" id="sub-error">Please enter a valid email address.</p>
     <p class="sub-note">We send occasional updates and you can unsubscribe anytime.</p>
     <div class="sub-ok" id="sub-ok">Thank you. You are on the list, we will be in touch soon.</div>
   </div>
@@ -228,6 +238,7 @@
           Voxylis&nbsp;<b>Growth</b>
         </a>
         <p class="foot-tag">A dedicated voice team of elite Philippine talent, built for speed to lead.</p>
+        <p class="foot-contact">Call or text <a href="tel:+17732200531">+1 (773) 220-0531</a></p>
       </div>
       <div class="foot-links">
         <a href="index.html#services">What we do</a>
@@ -249,10 +260,14 @@
     var form = document.getElementById('sub-form');
     var ok = document.getElementById('sub-ok');
     if (!form) return;
+    var emailEl = document.getElementById('sub-email');
+    var errEl = document.getElementById('sub-error');
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    emailEl.addEventListener('input', function () { emailEl.classList.remove('invalid'); if (errEl) errEl.style.display = 'none'; });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var email = document.getElementById('sub-email').value.trim();
-      if (!email) { form.reportValidity(); return; }
+      var email = emailEl.value.trim();
+      if (!emailRe.test(email)) { emailEl.classList.add('invalid'); if (errEl) errEl.style.display = 'block'; emailEl.focus(); return; }
       try {
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -280,6 +295,16 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
     els.forEach(function (el) { io.observe(el); });
     setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 3500);
+  })();
+
+  (function () {
+    var h = document.querySelector('header');
+    var btn = document.querySelector('.nav-toggle');
+    if (!h || !btn) return;
+    function close () { h.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+    btn.addEventListener('click', function () { btn.setAttribute('aria-expanded', h.classList.toggle('open') ? 'true' : 'false'); });
+    h.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   })();
 </script>
 

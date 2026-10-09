@@ -25,6 +25,7 @@
     --line-soft:    rgba(21, 25, 43, 0.07);
     --cream:        #f7f2e8;    /* text on royal band */
     --cream-soft:   rgba(248, 244, 236, 0.86);
+    --danger:       #c0392b;
 
     --f-display: 'Fraunces', Georgia, 'Times New Roman', serif;
     --f-body: 'Inter', system-ui, -apple-system, sans-serif;
@@ -104,8 +105,8 @@
     cursor: pointer; text-decoration: none; transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;
     white-space: nowrap;
   }
-  .btn-primary { background: var(--royal); color: #fff; box-shadow: 0 8px 22px rgba(10,14,40,0.22); }
-  .btn-primary:hover { background: var(--royal-bright); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(10,14,40,0.30); }
+  .btn-primary { background: var(--royal); color: #fff; box-shadow: 0 8px 22px rgba(0,0,0,0.20); }
+  .btn-primary:hover { background: var(--royal-bright); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.28); }
   .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
   .btn-ghost:hover { border-color: var(--royal); color: var(--royal); transform: translateY(-2px); }
   .btn-on-royal { background: var(--cream); color: var(--royal-deep); }
@@ -128,7 +129,24 @@
   .nav-links a { text-decoration: none; font-size: 0.92rem; font-weight: 500; color: var(--ink-soft); transition: color .15s; white-space: nowrap; }
   .nav-links a:hover { color: var(--royal); }
   .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
-  @media (max-width: 920px) { .nav-links { display: none; } }
+  .nav-toggle { display: none; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 10px; background: none; color: var(--ink); cursor: pointer; flex-shrink: 0; }
+  .nav-toggle .i-close { display: none; }
+  @media (min-width: 921px) { .nav-cta-mobile { display: none; } }
+  @media (max-width: 920px) {
+    .nav-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+    header.open .nav-toggle .i-open { display: none; }
+    header.open .nav-toggle .i-close { display: inline; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: var(--beige); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft);
+      padding: 0.4rem clamp(16px, 5vw, 48px) 1.3rem; box-shadow: var(--shadow-md);
+    }
+    header.open .nav-links { display: flex; }
+    .nav-links a { padding: 0.9rem 0; font-size: 1rem; border-bottom: 1px solid var(--line-soft); }
+    .nav-links > a.nav-cta-mobile { color: #fff; border-bottom: none; margin-top: 0.9rem; justify-content: center; padding: 0.95rem 1.7rem; }
+  }
 
   /* ---------- hero ---------- */
   /* full-bleed hero image with scrim + overlaid copy */
@@ -258,6 +276,8 @@
   .cal-placeholder p { font-size: 0.92rem; color: var(--ink-soft); }
   .emailrow { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
   .emailrow code { font-family: var(--f-body); font-weight: 600; background: var(--royal-tint); color: var(--royal); padding: 0.55rem 0.85rem; border-radius: 8px; font-size: 0.9rem; }
+  .phone-link { font-family: var(--f-display); font-weight: 600; font-size: 1.15rem; color: var(--royal); text-decoration: none; letter-spacing: 0.01em; }
+  .phone-link:hover { text-decoration: underline; text-underline-offset: 3px; }
   .copybtn { font-size: 0.8rem; font-weight: 600; color: var(--royal); background: none; border: 1px solid var(--line); border-radius: 8px; padding: 0.55rem 0.9rem; cursor: pointer; }
   .copybtn:hover { border-color: var(--royal); }
 
@@ -275,16 +295,34 @@
   @media (max-width: 460px) { .row-2 { grid-template-columns: 1fr; } }
   .form-note { font-size: 0.78rem; color: var(--ink-soft); }
   .form-ok { display: none; background: var(--royal-tint); border: 1px solid var(--royal); color: var(--royal-deep); border-radius: 10px; padding: 0.9rem 1rem; font-size: 0.92rem; font-weight: 500; }
+  .field-error { color: var(--danger); font-size: 0.78rem; margin-top: 0.35rem; display: none; }
+  .field.invalid input, .field.invalid textarea { border-color: var(--danger); box-shadow: 0 0 0 3px rgba(192,57,43,0.12); }
+  .field.invalid .field-error { display: block; }
 
   /* ---------- footer ---------- */
   footer { background: var(--beige-2); border-top: 1px solid var(--line-soft); padding-block: 3rem; }
   .foot { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
   .foot .brand { font-size: 1.1rem; }
   .foot-tag { font-size: 0.88rem; color: var(--ink-soft); max-width: 40ch; }
+  .foot-contact { font-size: 0.92rem; color: var(--ink-soft); margin-top: 0.7rem; }
+  .foot-contact a { color: var(--royal); text-decoration: none; font-weight: 600; }
+  .foot-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .foot-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
   .foot-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.9rem; }
   .foot-links a:hover { color: var(--royal); }
   .foot-bottom { margin-top: 2rem; padding-top: 1.4rem; border-top: 1px solid var(--line-soft); font-size: 0.82rem; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+  /* supervisor standout */
+  .sup-card { background: var(--royal); color: var(--cream); border-radius: 24px; padding: clamp(2rem, 4vw, 3.4rem); box-shadow: 0 30px 70px rgba(20,25,43,0.18); }
+  .sup-badge { display: inline-block; background: var(--cream); color: var(--royal-deep); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 0.95rem; border-radius: 999px; }
+  .sup-card h2 { color: #fff; font-size: clamp(1.8rem, 3.8vw, 2.6rem); margin-top: 1.1rem; }
+  .sup-card > p { color: var(--cream-soft); font-size: 1.08rem; margin-top: 1rem; max-width: 62ch; }
+  .sup-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 2.4rem; }
+  @media (max-width: 760px) { .sup-points { grid-template-columns: 1fr; } }
+  .sup-point { display: flex; gap: 0.85rem; align-items: flex-start; }
+  .sup-ico { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.15); color: #fff; display: grid; place-items: center; flex-shrink: 0; }
+  .sup-point h3 { color: #fff; font-size: 1.08rem; }
+  .sup-point p { color: var(--cream-soft); font-size: 0.93rem; margin-top: 0.3rem; }
 
   /* --- premium motion: hero load sequence + scroll reveal (JS-gated, reduced-motion safe) --- */
   .hero-bg img { animation: heroZoom 16s ease-out forwards; }
@@ -296,12 +334,12 @@
   .has-reveal .hero-copy > .trust { animation-delay: .54s; }
   @keyframes fadeUp { to { opacity: 1; transform: none; } }
   .has-reveal .sec-head, .has-reveal .pain, .has-reveal .svc, .has-reveal .step,
-  .has-reveal .cap, .has-reveal .adv-list li, .has-reveal .ind {
+  .has-reveal .cap, .has-reveal .adv-list li, .has-reveal .ind, .has-reveal .sup-card {
     opacity: 0; transform: translateY(24px);
     transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
   }
   .has-reveal .sec-head.in, .has-reveal .pain.in, .has-reveal .svc.in, .has-reveal .step.in,
-  .has-reveal .cap.in, .has-reveal .adv-list li.in, .has-reveal .ind.in { opacity: 1; transform: none; }
+  .has-reveal .cap.in, .has-reveal .adv-list li.in, .has-reveal .ind.in, .has-reveal .sup-card.in { opacity: 1; transform: none; }
   .has-reveal .grid-4 > :nth-child(2), .has-reveal .steps > :nth-child(2), .has-reveal .caps > :nth-child(2), .has-reveal .split > :nth-child(2),
   .has-reveal .ind-grid > :nth-child(4n+2) { transition-delay: .08s; }
   .has-reveal .grid-4 > :nth-child(3), .has-reveal .steps > :nth-child(3), .has-reveal .caps > :nth-child(3),
@@ -336,11 +374,13 @@
       </svg>
       Voxylis&nbsp;<b>Growth</b>
     </a>
-    <nav class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><svg class="i-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="i-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <nav class="nav-links" id="navmenu">
       <a href="#services">What we do</a>
       <a href="#how">How it works</a>
       <a href="blog.html">Blog</a>
       <a href="about.html">About</a>
+      <a href="#contact" class="btn btn-primary nav-cta-mobile">Book a Discovery Call</a>
     </nav>
     <div class="nav-cta">
       <a href="#contact" class="btn btn-primary">Book a Discovery Call</a>
@@ -431,6 +471,30 @@
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Order, booking, and scheduling support</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Overflow coverage so no call goes unanswered</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="supervisor">
+  <div class="wrap">
+    <div class="sup-card">
+      <span class="sup-badge">Included at no extra cost</span>
+      <h2>Every team comes with a supervisor.</h2>
+      <p>You are never just handed a remote hire and left to manage it alone. With every engagement, Voxylis Growth includes a dedicated supervisor who watches over your team, so quality stays high and nothing slips through.</p>
+      <div class="sup-points">
+        <div class="sup-point">
+          <span class="sup-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 7-7"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></span>
+          <div><h3>Quality and coaching</h3><p>Reviews the work, coaches your talent, and keeps standards sharp.</p></div>
+        </div>
+        <div class="sup-point">
+          <span class="sup-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span>
+          <div><h3>Your point of contact</h3><p>One person who knows your account and answers to you.</p></div>
+        </div>
+        <div class="sup-point">
+          <span class="sup-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+          <div><h3>Clear reporting</h3><p>Regular updates on how your team is performing, in plain language.</p></div>
+        </div>
       </div>
     </div>
   </div>
@@ -528,18 +592,22 @@
         <p>Your scheduler will live right here, so clients can pick a time in one click. For now, leave a note and we will reach out to set it up.</p>
         <a href="#contact-form" class="btn btn-primary" style="align-self: flex-start;">Request a time <span class="arrow"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
         <div class="emailrow">
+          <span style="font-size:0.88rem;color:var(--ink-soft);">Call or text</span>
+          <a href="tel:+17732200531" class="phone-link">+1 (773) 220-0531</a>
+        </div>
+        <div class="emailrow">
           <span style="font-size:0.88rem;color:var(--ink-soft);">Or email us</span>
           <code id="email">hello@voxylisgrowth.com</code>
           <button class="copybtn" id="copyEmail" type="button">Copy</button>
         </div>
-        <p style="font-size:0.78rem;color:var(--ink-soft);">Scheduler link and email are placeholders, ready to swap for the real ones.</p>
+        <p style="font-size:0.78rem;color:var(--ink-soft);">The phone number is live, call or text anytime. The scheduler link and email are placeholders, ready to swap for the real ones.</p>
       </div>
       <form class="cf" id="contact-form" novalidate>
         <div class="row-2">
-          <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" type="text" required autocomplete="name"></div>
+          <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" type="text" required autocomplete="name"><p class="field-error">Please enter your name.</p></div>
           <div class="field"><label for="c-company">Company</label><input id="c-company" name="company" type="text" autocomplete="organization"></div>
         </div>
-        <div class="field"><label for="c-email">Work email</label><input id="c-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="c-email">Work email</label><input id="c-email" name="email" type="email" required autocomplete="email"><p class="field-error">Please enter a valid email address.</p></div>
         <div class="field">
           <label for="c-need">What do you need most?</label>
           <select id="c-need" name="need">
@@ -567,6 +635,7 @@
           Voxylis&nbsp;<b>Growth</b>
         </a>
         <p class="foot-tag">A dedicated voice team of elite Philippine talent, built for speed to lead.</p>
+        <p class="foot-contact">Call or text <a href="tel:+17732200531">+1 (773) 220-0531</a></p>
       </div>
       <div class="foot-links">
         <a href="#problem">The problem</a>
@@ -611,11 +680,18 @@
     var form = document.getElementById('contact-form');
     var ok = document.getElementById('formOk');
     if (!form) return;
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    form.querySelectorAll('input').forEach(function (i) {
+      i.addEventListener('input', function () { i.closest('.field').classList.remove('invalid'); });
+    });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var name = form.querySelector('[name=name]').value.trim();
-      var email = form.querySelector('[name=email]').value.trim();
-      if (!name || !email) { form.reportValidity(); return; }
+      var nameEl = form.querySelector('#c-name'), emailEl = form.querySelector('#c-email');
+      var name = nameEl.value.trim(), email = emailEl.value.trim();
+      var good = true;
+      if (!name) { nameEl.closest('.field').classList.add('invalid'); good = false; }
+      if (!emailRe.test(email)) { emailEl.closest('.field').classList.add('invalid'); good = false; }
+      if (!good) { var first = form.querySelector('.field.invalid input'); if (first) first.focus(); return; }
       try {
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -641,7 +717,7 @@
   // Scroll reveal: fade sections and cards up as they enter view
   (function () {
     if (!document.documentElement.classList.contains('has-reveal')) return;
-    var els = document.querySelectorAll('.sec-head, .pain, .svc, .step, .cap, .adv-list li, .ind');
+    var els = document.querySelectorAll('.sec-head, .pain, .svc, .step, .cap, .adv-list li, .ind, .sup-card');
     if (!els.length || !('IntersectionObserver' in window)) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -649,6 +725,20 @@
     els.forEach(function (el) { io.observe(el); });
     // Safety net so nothing can stay hidden if the observer never fires
     setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 3500);
+  })();
+
+  // Mobile nav menu toggle
+  (function () {
+    var h = document.querySelector('header');
+    var btn = document.querySelector('.nav-toggle');
+    if (!h || !btn) return;
+    function close () { h.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+    btn.addEventListener('click', function () {
+      var open = h.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    h.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   })();
 </script>
 

@@ -43,8 +43,8 @@
   .lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 60ch; }
 
   .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--f-body); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em; padding: 0.95rem 1.7rem; border-radius: 999px; border: 1.5px solid transparent; cursor: pointer; text-decoration: none; transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease; white-space: nowrap; }
-  .btn-primary { background: var(--royal); color: #fff; box-shadow: 0 8px 22px rgba(10,14,40,0.22); }
-  .btn-primary:hover { background: var(--royal-bright); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(10,14,40,0.30); }
+  .btn-primary { background: var(--royal); color: #fff; box-shadow: 0 8px 22px rgba(0,0,0,0.20); }
+  .btn-primary:hover { background: var(--royal-bright); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.28); }
   .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
   .btn-ghost:hover { border-color: var(--royal); color: var(--royal); transform: translateY(-2px); }
   .btn-on-royal { background: var(--cream); color: var(--royal-deep); }
@@ -60,7 +60,24 @@
   .nav-links { display: flex; align-items: center; gap: 1.6rem; }
   .nav-links a { text-decoration: none; font-size: 0.92rem; font-weight: 500; color: var(--ink-soft); transition: color .15s; white-space: nowrap; }
   .nav-links a:hover, .nav-links a.active { color: var(--royal); }
-  @media (max-width: 920px) { .nav-links { display: none; } }
+  .nav-toggle { display: none; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 10px; background: none; color: var(--ink); cursor: pointer; flex-shrink: 0; }
+  .nav-toggle .i-close { display: none; }
+  @media (min-width: 921px) { .nav-cta-mobile { display: none; } }
+  @media (max-width: 920px) {
+    .nav-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+    header.open .nav-toggle .i-open { display: none; }
+    header.open .nav-toggle .i-close { display: inline; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: var(--beige); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft);
+      padding: 0.4rem clamp(16px, 5vw, 48px) 1.3rem; box-shadow: var(--shadow-md);
+    }
+    header.open .nav-links { display: flex; }
+    .nav-links a { padding: 0.9rem 0; font-size: 1rem; border-bottom: 1px solid var(--line-soft); }
+    .nav-links > a.nav-cta-mobile { color: #fff; border-bottom: none; margin-top: 0.9rem; justify-content: center; padding: 0.95rem 1.7rem; }
+  }
 
   /* page intro */
   .intro { padding-top: clamp(48px, 7vw, 86px); }
@@ -97,21 +114,49 @@
   .foot { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; }
   .foot .brand { font-size: 1.15rem; margin-bottom: 0.6rem; }
   .foot-tag { font-size: 0.88rem; color: var(--ink-soft); max-width: 40ch; }
+  .foot-contact { font-size: 0.92rem; color: var(--ink-soft); margin-top: 0.7rem; }
+  .foot-contact a { color: var(--royal); text-decoration: none; font-weight: 600; }
+  .foot-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .foot-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
   .foot-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.9rem; }
   .foot-links a:hover { color: var(--royal); }
   .foot-bottom { margin-top: 2rem; padding-top: 1.4rem; border-top: 1px solid var(--line-soft); font-size: 0.82rem; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+  /* founder */
+  .founder-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+  @media (max-width: 820px) { .founder-grid { grid-template-columns: 1fr; } }
+  .founder-photo { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); line-height: 0; max-width: 420px; }
+  @media (max-width: 820px) { .founder-photo { max-width: 340px; margin-inline: auto; } }
+  .founder-photo img { display: block; width: 100%; height: auto; }
+  .founder-body h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); }
+  .founder-name { font-family: var(--f-display); font-weight: 600; font-size: 1.4rem; margin-top: 0.6rem; display: flex; flex-direction: column; }
+  .founder-name span { font-family: var(--f-body); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--royal); margin-top: 0.4rem; }
+  .founder-body > p { color: var(--ink-soft); font-size: 1.02rem; margin-top: 1rem; max-width: 62ch; }
+  .founder-body > p strong { color: var(--ink); font-weight: 600; }
+  .founder-body > p.founder-mission { font-family: var(--f-display); font-weight: 500; font-size: clamp(1.1rem, 2.2vw, 1.4rem); color: var(--ink); line-height: 1.4; margin-top: 1.8rem; background: var(--royal-tint); border-radius: 14px; padding: 1.2rem 1.4rem; }
+
+  /* supervisor standout */
+  .sup-card { background: var(--royal); color: var(--cream); border-radius: 24px; padding: clamp(2rem, 4vw, 3.4rem); box-shadow: 0 30px 70px rgba(20,25,43,0.18); }
+  .sup-badge { display: inline-block; background: var(--cream); color: var(--royal-deep); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 0.95rem; border-radius: 999px; }
+  .sup-card h2 { color: #fff; font-size: clamp(1.8rem, 3.8vw, 2.6rem); margin-top: 1.1rem; }
+  .sup-card > p { color: var(--cream-soft); font-size: 1.08rem; margin-top: 1rem; max-width: 62ch; }
+  .sup-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 2.4rem; }
+  @media (max-width: 760px) { .sup-points { grid-template-columns: 1fr; } }
+  .sup-point { display: flex; gap: 0.85rem; align-items: flex-start; }
+  .sup-ico { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.15); color: #fff; display: grid; place-items: center; flex-shrink: 0; }
+  .sup-point h3 { color: #fff; font-size: 1.08rem; }
+  .sup-point p { color: var(--cream-soft); font-size: 0.93rem; margin-top: 0.3rem; }
 
   /* --- premium motion: intro load + scroll reveal (JS-gated, reduced-motion safe) --- */
   .has-reveal .intro h1, .has-reveal .intro .lead, .has-reveal .intro-banner { opacity: 0; transform: translateY(16px); animation: fadeUp .85s cubic-bezier(.2,.7,.2,1) forwards; }
   .has-reveal .intro .lead { animation-delay: .16s; }
   .has-reveal .intro-banner { animation-delay: .30s; }
   @keyframes fadeUp { to { opacity: 1; transform: none; } }
-  .has-reveal .sec-head, .has-reveal .value, .has-reveal .prose {
+  .has-reveal .sec-head, .has-reveal .value, .has-reveal .prose, .has-reveal .founder-grid, .has-reveal .sup-card {
     opacity: 0; transform: translateY(24px);
     transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
   }
-  .has-reveal .sec-head.in, .has-reveal .value.in, .has-reveal .prose.in { opacity: 1; transform: none; }
+  .has-reveal .sec-head.in, .has-reveal .value.in, .has-reveal .prose.in, .has-reveal .founder-grid.in, .has-reveal .sup-card.in { opacity: 1; transform: none; }
   .has-reveal .values > :nth-child(2) { transition-delay: .08s; }
   .has-reveal .values > :nth-child(3) { transition-delay: .16s; }
   .has-reveal .values > :nth-child(4) { transition-delay: .24s; }
@@ -137,13 +182,15 @@
       <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#2743c9"/><path d="M9 16h2.2l1.6-5 2.4 10 2.1-7 1.5 2h3.7" stroke="#f7f2e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Voxylis&nbsp;<b>Growth</b>
     </a>
-    <nav class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><svg class="i-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="i-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <nav class="nav-links" id="navmenu">
       <a href="index.html#services">What we do</a>
       <a href="index.html#how">How it works</a>
       <a href="blog.html">Blog</a>
       <a href="about.html" class="active">About</a>
+      <a href="index.html#contact" class="btn btn-primary nav-cta-mobile">Book a Discovery Call</a>
     </nav>
-    <a href="index.html#contact" class="btn btn-primary">Book a Discovery Call</a>
+    <a href="index.html#contact" class="btn btn-primary nav-cta">Book a Discovery Call</a>
   </div>
 </header>
 
@@ -151,9 +198,6 @@
   <div class="wrap">
     <h1>We help growing companies grow through conversation.</h1>
     <p class="lead">Voxylis Growth is a dedicated voice team of elite Philippine talent. We give ambitious companies the speed of a built in team, the warmth of people who genuinely care, and none of the overhead of building it alone.</p>
-    <div class="intro-banner">
-      <img src="img/about-hero.webp" width="1512" height="1008" alt="A bright modern office where professionals with headsets review growth dashboards together, with a city skyline behind them">
-    </div>
   </div>
 </section>
 
@@ -164,6 +208,47 @@
       <p>Voxylis Growth started from a simple belief. Growing companies lose more deals to slow, missed, and mishandled conversations than to almost anything else. A lead goes cold because no one followed up in time. A customer drifts away because a call went unanswered. A team gets so buried in the phone that the real work slows down.</p>
       <p>We exist to close that gap. We bring together elite voice talent from the Philippines with the training, structure, and care to turn everyday conversations into growth. Our people are warm, sharp, and genuinely invested in the brands they represent.</p>
       <p><strong>We are not a faceless vendor.</strong> We are a growth partner that plugs into your team and treats your customers as if they were our own. When you grow, we grow with you.</p>
+    </div>
+  </div>
+</section>
+
+<section id="founder">
+  <div class="wrap founder-grid">
+    <div class="founder-photo">
+      <img src="img/belle.webp" width="900" height="1200" alt="Belle Dunn, founder and CEO of Voxylis Growth">
+    </div>
+    <div class="founder-body">
+      <h2>Meet the founder.</h2>
+      <p class="founder-name">Belle Dunn<span>Founder and CEO</span></p>
+      <p>Belle founded Voxylis Growth on one simple belief: great businesses deserve great people, and great people deserve meaningful work.</p>
+      <p>Originally from the Philippines and now based in Chicago, she brings more than eight years in customer service, virtual administration, sales support, operations, and technology driven solutions. She has worked side by side with business owners and teams to keep operations organized, responsive, and moving forward.</p>
+      <p>Working remotely herself taught her what truly makes a distributed team succeed. It is never just about finding someone to complete a task. It is about finding the right person, building clear systems, earning trust, communicating well, and giving people the structure to perform at a high level.</p>
+      <p><strong>That is the difference you feel here.</strong> Outsourcing with Voxylis Growth never means handing tasks to a faraway team. Done right, it becomes a true extension of your business, with the quality, communication, and accountability you expect from people in your own office.</p>
+      <p class="founder-mission">Build better businesses, create better opportunities, and prove that distance should never be a barrier to exceptional work.</p>
+    </div>
+  </div>
+</section>
+
+<section id="supervisor">
+  <div class="wrap">
+    <div class="sup-card">
+      <span class="sup-badge">Included at no extra cost</span>
+      <h2>Every team comes with a supervisor.</h2>
+      <p>You are never just handed a remote hire and left to manage it alone. With every engagement, Voxylis Growth includes a dedicated supervisor who watches over your team, so quality stays high and nothing slips through.</p>
+      <div class="sup-points">
+        <div class="sup-point">
+          <span class="sup-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 7-7"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></span>
+          <div><h3>Quality and coaching</h3><p>Reviews the work, coaches your talent, and keeps standards sharp.</p></div>
+        </div>
+        <div class="sup-point">
+          <span class="sup-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span>
+          <div><h3>Your point of contact</h3><p>One person who knows your account and answers to you.</p></div>
+        </div>
+        <div class="sup-point">
+          <span class="sup-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+          <div><h3>Clear reporting</h3><p>Regular updates on how your team is performing, in plain language.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -226,6 +311,7 @@
           Voxylis&nbsp;<b>Growth</b>
         </a>
         <p class="foot-tag">A dedicated voice team of elite Philippine talent, built for speed to lead.</p>
+        <p class="foot-contact">Call or text <a href="tel:+17732200531">+1 (773) 220-0531</a></p>
       </div>
       <div class="foot-links">
         <a href="index.html#services">What we do</a>
@@ -245,13 +331,23 @@
 <script>
   (function () {
     if (!document.documentElement.classList.contains('has-reveal')) return;
-    var els = document.querySelectorAll('.sec-head, .value, .prose');
+    var els = document.querySelectorAll('.sec-head, .value, .prose, .founder-grid, .sup-card');
     if (!els.length || !('IntersectionObserver' in window)) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
     els.forEach(function (el) { io.observe(el); });
     setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 3500);
+  })();
+
+  (function () {
+    var h = document.querySelector('header');
+    var btn = document.querySelector('.nav-toggle');
+    if (!h || !btn) return;
+    function close () { h.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+    btn.addEventListener('click', function () { btn.setAttribute('aria-expanded', h.classList.toggle('open') ? 'true' : 'false'); });
+    h.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   })();
 </script>
 
