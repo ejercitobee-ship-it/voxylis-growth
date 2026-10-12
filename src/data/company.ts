@@ -4,8 +4,8 @@ export const company = {
   legalName: 'Voxylis Growth', // editable, update when the legal entity is confirmed
   tagline: 'Experienced Talent. Reliable Operations. Room to Grow.',
   pitch:
-    'Voxylis Growth helps US businesses build dependable remote teams by connecting them with experienced Filipino professionals, supported by structured onboarding, clear processes, and ongoing operational oversight.',
-  market: 'United States',
+    'Voxylis Growth helps US and UK businesses build dependable remote teams by connecting them with experienced Filipino professionals, supported by structured onboarding, clear processes, and ongoing operational oversight.',
+  market: 'United States and United Kingdom',
   talentLocation: 'Philippines',
 
   // Configurable business contact details. Replace placeholders when confirmed.

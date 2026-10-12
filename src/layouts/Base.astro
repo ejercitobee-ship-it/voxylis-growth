@@ -10,7 +10,7 @@ interface Props {
   image?: string;
   noindex?: boolean;
 }
-const { title, description, image = '/img/hero.webp', noindex = false } = Astro.props;
+const { title, description, image = '/img/hero.jpg', noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
 
@@ -22,7 +22,10 @@ const org = {
   email: company.email,
   telephone: company.phoneDisplay,
   description: company.pitch,
-  areaServed: { '@type': 'Country', name: 'United States' },
+  areaServed: [
+    { '@type': 'Country', name: 'United States' },
+    { '@type': 'Country', name: 'United Kingdom' },
+  ],
 };
 ---
 

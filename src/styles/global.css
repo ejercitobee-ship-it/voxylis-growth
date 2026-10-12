@@ -3,22 +3,23 @@
    Navy + charcoal + white, royal blue accent. Sora + Hanken Grotesk.
    ============================================================ */
 :root {
-  --navy: #0f1b3d;
-  --navy-2: #16244c;
+  /* Executive Light: white base, near-black ink, indigo accent, deep-ink dark bands */
+  --navy: #0b1020;          /* deep ink for footer + closing CTA bands */
+  --navy-2: #141a2e;
   --charcoal: #1f2433;
-  --ink: #151a28;
-  --ink-soft: #4c5468;
+  --ink: #0b0f1a;
+  --ink-soft: #5a6172;
   --bg: #ffffff;
-  --surface: #f5f7fb;
-  --surface-2: #eef1f8;
-  --line: rgba(20, 24, 36, 0.12);
-  --line-soft: rgba(20, 24, 36, 0.07);
-  --royal: #2743c9;
-  --royal-bright: #4766f0;
-  --royal-tint: rgba(39, 67, 201, 0.08);
-  --on-navy: #e8ecf8;
-  --on-navy-soft: rgba(232, 236, 248, 0.72);
-  --accent-on-navy: #93a7ff;
+  --surface: #f6f7fb;
+  --surface-2: #eceff6;
+  --line: rgba(11, 15, 26, 0.10);
+  --line-soft: rgba(11, 15, 26, 0.055);
+  --royal: #3b4ef0;         /* indigo accent */
+  --royal-bright: #5b6bff;
+  --royal-tint: rgba(59, 78, 240, 0.08);
+  --on-navy: #e9ebf3;
+  --on-navy-soft: rgba(233, 235, 243, 0.70);
+  --accent-on-navy: #9aa8ff;
   --danger: #c0392b;
 
   --f-display: 'Sora', system-ui, -apple-system, sans-serif;
@@ -27,8 +28,8 @@
   --maxw: 1160px;
   --r: 14px;
   --r-lg: 20px;
-  --shadow-sm: 0 1px 2px rgba(20, 24, 40, 0.04), 0 6px 18px rgba(20, 24, 40, 0.05);
-  --shadow-md: 0 2px 8px rgba(20, 24, 40, 0.07), 0 22px 48px rgba(20, 24, 40, 0.10);
+  --shadow-sm: 0 1px 2px rgba(11, 15, 26, 0.04), 0 4px 14px rgba(11, 15, 26, 0.045);
+  --shadow-md: 0 2px 8px rgba(11, 15, 26, 0.06), 0 18px 40px rgba(11, 15, 26, 0.08);
   color-scheme: light;
 }
 
@@ -48,11 +49,11 @@ img { max-width: 100%; display: block; }
 a { color: var(--royal); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 :focus-visible { outline: 2.5px solid var(--royal); outline-offset: 3px; border-radius: 4px; }
-::selection { background: rgba(39, 67, 201, 0.18); color: var(--ink); }
-html { scrollbar-color: rgba(39, 67, 201, 0.5) var(--surface-2); }
+::selection { background: rgba(59, 78, 240, 0.18); color: var(--ink); }
+html { scrollbar-color: rgba(59, 78, 240, 0.5) var(--surface-2); }
 ::-webkit-scrollbar { width: 12px; height: 12px; }
 ::-webkit-scrollbar-track { background: var(--surface-2); }
-::-webkit-scrollbar-thumb { background: rgba(39, 67, 201, 0.45); border-radius: 999px; border: 3px solid var(--surface-2); }
+::-webkit-scrollbar-thumb { background: rgba(59, 78, 240, 0.45); border-radius: 999px; border: 3px solid var(--surface-2); }
 input, textarea, select, button { accent-color: var(--royal); caret-color: var(--royal); font-family: inherit; }
 
 h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; line-height: 1.12; margin: 0; letter-spacing: -0.02em; text-wrap: balance; }
@@ -130,15 +131,15 @@ section { padding-block: clamp(56px, 8vw, 104px); }
 }
 
 /* ---------- hero ---------- */
-.hero { background: var(--navy); color: var(--on-navy); position: relative; overflow: hidden; }
+.hero { background: linear-gradient(180deg, #ffffff 0%, var(--surface) 100%); color: var(--ink); position: relative; overflow: hidden; border-bottom: 1px solid var(--line-soft); }
 .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
-.hero h1 { color: #fff; font-size: clamp(2.3rem, 5vw, 3.7rem); font-weight: 800; }
-.hero .lead { color: var(--on-navy-soft); margin-top: 1.3rem; font-size: 1.16rem; max-width: 52ch; }
+.hero h1 { color: var(--ink); font-size: clamp(2.3rem, 5vw, 3.8rem); font-weight: 800; }
+.hero .lead { color: var(--ink-soft); margin-top: 1.3rem; font-size: 1.16rem; max-width: 52ch; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
-.hero-note { margin-top: 1.6rem; font-size: 0.9rem; color: var(--on-navy-soft); display: inline-flex; align-items: center; gap: 0.5rem; }
-.hero-note .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-on-navy); }
-.hero-visual { border-radius: var(--r-lg); overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4); line-height: 0; }
+.hero-note { margin-top: 1.6rem; font-size: 0.9rem; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 0.5rem; }
+.hero-note .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--royal); }
+.hero-visual { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); line-height: 0; }
 .hero-visual img { width: 100%; height: auto; }
 
 /* ---------- generic grids / cards ---------- */
@@ -154,7 +155,7 @@ section { padding-block: clamp(56px, 8vw, 104px); }
 
 /* service category cards */
 .svc-card { display: flex; flex-direction: column; min-width: 0; transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease, border-color .25s ease; }
-.svc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(39, 67, 201, 0.22); }
+.svc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(59, 78, 240, 0.22); }
 .svc-ico { width: 48px; height: 48px; border-radius: 12px; background: var(--royal-tint); color: var(--royal); display: grid; place-items: center; margin-bottom: 1.1rem; }
 .svc-card h3 { font-size: 1.22rem; }
 .svc-card p { color: var(--ink-soft); font-size: 0.96rem; margin-top: 0.5rem; }

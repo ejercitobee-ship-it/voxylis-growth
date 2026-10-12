@@ -13,7 +13,7 @@ export const faqs = [
   },
   {
     q: 'Where are the professionals based?',
-    a: 'Our professionals are experienced Filipino talent working remotely from the Philippines, supporting businesses primarily in the United States. Coverage hours are agreed around your business.',
+    a: 'Our professionals are experienced Filipino talent working remotely from the Philippines, supporting businesses in the United States and the United Kingdom. Coverage hours are agreed around your business.',
   },
   {
     q: 'How do you evaluate candidates?',
