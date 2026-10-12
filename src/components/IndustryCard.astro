@@ -1,0 +1,12 @@
+---
+import type { Industry } from '../data/industries';
+interface Props { ind: Industry; }
+const { ind } = Astro.props;
+---
+<a href={`/industries/${ind.slug}/`} class:list={['card', 'ind-card', 'reveal', ind.featured && 'featured']}>
+  <div>
+    <h3>{ind.title}</h3>
+    <p>{ind.short}</p>
+  </div>
+  <span class="card-link">Explore industry <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>

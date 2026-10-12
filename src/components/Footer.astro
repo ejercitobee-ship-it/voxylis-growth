@@ -8,20 +8,20 @@ import { company } from '../data/company';
       <div>
         <a href="/" class="brand" aria-label="Voxylis Growth home">
           <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <rect width="32" height="32" rx="7" fill="#2743c9"></rect>
-            <path d="M8 21l5-6 4 3 7-8" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path>
+            <rect width="32" height="32" rx="6" fill="#30302c"></rect>
+            <path d="M9 10.5l7 11 7-11" stroke="#B99662" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
-          Voxylis&nbsp;<b>Growth</b>
+          Voxylis Growth
         </a>
-        <p class="footer-tag">Managed outsourcing and dedicated remote staffing. Experienced Filipino professionals for US and UK businesses.</p>
+        <p class="footer-tag">A managed outsourcing partner connecting US and UK businesses with skilled Filipino professionals.</p>
         <p class="footer-contact">
-          Call or text <a href={company.phoneHref}>{company.phoneDisplay}</a><br />
+          <a href={company.phoneHref}>{company.phoneDisplay}</a><br />
           <a href={`mailto:${company.email}`}>{company.email}</a>
         </p>
       </div>
       {footerNav.map((col) => (
         <div class="footer-col">
-          <h4>{col.heading}</h4>
+          <p class="footer-col-h">{col.heading}</p>
           <ul>
             {col.links.map((l) => (
               <li><a href={l.href}>{l.label}</a></li>
@@ -32,7 +32,7 @@ import { company } from '../data/company';
     </div>
     <div class="footer-bottom">
       <span>&copy; {company.year} {company.legalName}. All rights reserved.</span>
-      <span>Talent based in the Philippines. Serving businesses across the United States and the United Kingdom.</span>
+      <span>Talent based in the Philippines. Serving businesses across the US and UK.</span>
     </div>
   </div>
 </footer>

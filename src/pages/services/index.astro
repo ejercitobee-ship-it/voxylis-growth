@@ -11,14 +11,15 @@ const models = [
 ];
 ---
 <Base
-  title="Talent Solutions & Managed Outsourcing Services | Voxylis Growth"
-  description="Experienced Filipino professionals organized by business function: operations, customer success, sales, technical, marketing, and e-commerce. Dedicated staffing and managed outsourcing for US and UK businesses."
+  title="Services & Talent Solutions | Voxylis Growth"
+  description="Skilled Filipino professionals organized by business function: customer experience, executive and administrative, sales, marketing, technical, and business operations and e-commerce."
 >
   <section>
     <div class="wrap">
       <div class="sec-head reveal">
-        <h2 style="font-size:clamp(2rem,4.5vw,3rem)">Talent solutions, organized by business function.</h2>
-        <p>Find experienced professionals for the work in front of you. Every role is matched to your actual requirements, scoped with you, and supported through structured onboarding and ongoing oversight.</p>
+        <span class="eyebrow" style="display:block;margin-bottom:0.8rem">Services</span>
+        <h1 style="font-size:clamp(2rem,4.5vw,3rem)">Specialized Roles. Real Impact.</h1>
+        <p>Find the right expertise for the work that moves your business forward. Every role is matched to your requirements, scoped with you, and supported through structured onboarding and ongoing oversight.</p>
       </div>
       <div class="grid cols-3" style="margin-top:2.8rem">
         {categories.map((c) => <ServiceCard cat={c} />)}
@@ -35,7 +36,7 @@ const models = [
       <div class="grid cols-3" style="margin-top:2.6rem">
         {models.map((m) => (
           <div class="card reveal">
-            <h3 style="font-size:1.18rem">{m.t}</h3>
+            <h3 style="font-size:1.25rem">{m.t}</h3>
             <p class="muted" style="margin-top:0.5rem;font-size:0.96rem">{m.b}</p>
           </div>
         ))}
@@ -46,5 +47,5 @@ const models = [
     </div>
   </section>
 
-  <CtaBand heading="Not sure which roles you need?" text="Tell us about your business and the work that keeps piling up. We will help you scope the right roles and prepare a proposal." cta="Request a Proposal" />
+  <CtaBand heading="Not sure which roles you need?" text="Tell us about your business and the work that keeps piling up. We will help you scope the right roles." cta="Book a Consultation" />
 </Base>

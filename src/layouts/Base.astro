@@ -45,13 +45,13 @@ const org = {
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#0f1b3d" />
+    <meta name="theme-color" content="#171715" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
     />
     <script type="application/ld+json" set:html={JSON.stringify(org)} />
     <script is:inline>
@@ -93,7 +93,7 @@ const org = {
           entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
         }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
         els.forEach(function (el) { io.observe(el); });
-        setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 3500);
+        setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 1400);
       })();
     </script>
   </body>

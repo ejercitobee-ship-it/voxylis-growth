@@ -1,7 +1,7 @@
 ---
 interface Props {
   href: string;
-  variant?: 'primary' | 'ghost' | 'on-navy' | 'ghost-navy';
+  variant?: 'primary' | 'ghost' | 'on-dark' | 'ghost-dark';
   arrow?: boolean;
   class?: string;
 }
@@ -9,8 +9,8 @@ const { href, variant = 'primary', arrow = false, class: cls = '' } = Astro.prop
 const variantClass: Record<string, string> = {
   primary: 'btn-primary',
   ghost: 'btn-ghost',
-  'on-navy': 'btn-on-navy',
-  'ghost-navy': 'btn-ghost-navy',
+  'on-dark': 'btn-on-dark',
+  'ghost-dark': 'btn-ghost-dark',
 };
 ---
 <a href={href} class:list={['btn', variantClass[variant], cls]}>

@@ -7,19 +7,19 @@ const active = (href: string) => (href === '/' ? path === '/' : path.startsWith(
   <div class="wrap nav">
     <a href="/" class="brand" aria-label="Voxylis Growth home">
       <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <rect width="32" height="32" rx="7" fill="#2743c9"></rect>
-        <path d="M8 21l5-6 4 3 7-8" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path>
+        <rect width="32" height="32" rx="6" fill="#171715"></rect>
+        <path d="M9 10.5l7 11 7-11" stroke="#B99662" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path>
       </svg>
-      Voxylis&nbsp;<b>Growth</b>
+      Voxylis Growth
     </a>
     <nav class="nav-links" id="navmenu" aria-label="Primary">
       {primaryNav.map((i) => (
         <a href={i.href} aria-current={active(i.href) ? 'page' : undefined}>{i.label}</a>
       ))}
-      <a href="/contact/" class="btn btn-primary nav-cta-mobile">Build Your Team</a>
+      <a href="/contact/" class="btn btn-primary nav-cta-mobile">Book a Consultation</a>
     </nav>
     <div class="nav-cta">
-      <a href="/contact/" class="btn btn-primary">Build Your Team</a>
+      <a href="/contact/" class="btn btn-primary">Book a Consultation</a>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu">
         <svg class="i-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
         <svg class="i-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>

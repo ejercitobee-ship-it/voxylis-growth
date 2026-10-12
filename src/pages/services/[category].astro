@@ -14,17 +14,18 @@ const contactHref = `/contact/?service=${encodeURIComponent(cat.title)}`;
 ---
 <Base
   title={`${cat.title} | Voxylis Growth`}
-  description={`${cat.short} Experienced Filipino professionals for US and UK businesses, matched to your requirements and supported with structured onboarding and oversight.`}
+  description={`${cat.short} Skilled Filipino professionals for US and UK businesses, matched to your requirements with structured onboarding and oversight.`}
 >
   <section>
     <div class="wrap">
-      <p class="muted reveal" style="font-size:0.9rem"><a href="/services/">Talent Solutions</a> &nbsp;/&nbsp; {cat.title}</p>
-      <div class="sec-head reveal" style="margin-top:0.8rem">
-        <h2 style="font-size:clamp(2rem,4.5vw,2.9rem)">{cat.title}</h2>
+      <p class="muted reveal" style="font-size:0.9rem"><a href="/services/">Services</a> &nbsp;/&nbsp; {cat.title}</p>
+      <div class="sec-head reveal" style="margin-top:0.9rem">
+        <span class="eyebrow" style="display:block;margin-bottom:0.8rem">Service</span>
+        <h1 style="font-size:clamp(2rem,4.5vw,3rem)">{cat.title}</h1>
         <p>{cat.intro}</p>
       </div>
-      <div class="hero-ctas reveal" style="margin-top:1.6rem">
-        <Button href={contactHref} variant="primary" arrow>Find Talent for Your Role</Button>
+      <div class="hero-ctas reveal" style="margin-top:1.8rem">
+        <Button href={contactHref} variant="primary" arrow>Book a Consultation</Button>
         <Button href="/how-it-works/" variant="ghost">How it works</Button>
       </div>
     </div>
@@ -33,8 +34,8 @@ const contactHref = `/contact/?service=${encodeURIComponent(cat.title)}`;
   <section class="band">
     <div class="wrap">
       <div class="sec-head reveal">
-        <h2>Roles in {cat.title.toLowerCase()}.</h2>
-        <p>Example roles we place in this area. Each is matched to your responsibilities and scoped with you.</p>
+        <h2>Roles we place.</h2>
+        <p>Example roles in {cat.title.toLowerCase()}. Each is matched to your responsibilities and scoped with you.</p>
       </div>
       <div class="grid cols-3" style="margin-top:2.6rem">
         {cat.roles.map((role) => <RoleCard role={role} contactHref={contactHref} />)}
@@ -45,12 +46,12 @@ const contactHref = `/contact/?service=${encodeURIComponent(cat.title)}`;
 
   <section>
     <div class="wrap">
-      <div class="sec-head reveal"><h2 style="font-size:1.5rem">Other talent categories</h2></div>
+      <div class="sec-head reveal"><h2 style="font-size:1.5rem">Other services</h2></div>
       <div class="pills reveal" style="margin-top:1.4rem">
         {others.map((c) => <a class="pill" href={`/services/${c.slug}/`}>{c.title}</a>)}
       </div>
     </div>
   </section>
 
-  <CtaBand heading={`Looking for ${cat.title.toLowerCase()} support?`} text="Tell us the role and what success looks like. We will prepare a tailored proposal based on scope and seniority." cta="Request a Proposal" href={contactHref} />
+  <CtaBand heading={`Need ${cat.title.toLowerCase()} support?`} text="Tell us the role and what success looks like. We will put together a proposal shaped around scope and seniority." cta="Book a Consultation" href={contactHref} />
 </Base>

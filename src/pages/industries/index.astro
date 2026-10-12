@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import IndustryCard from '../../components/IndustryCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { industries } from '../../data/industries';
+---
+<Base
+  title="Industries We Serve | Voxylis Growth"
+  description="Managed outsourcing and skilled Filipino professionals for property management, e-commerce, technology, healthcare administration, professional services, education, and more."
+>
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:0.8rem">Industries</span>
+        <h1 style="font-size:clamp(2rem,4.5vw,3rem)">Different Industries. Shared Commitment to Excellence.</h1>
+        <p>We serve businesses across many sectors. Property management and real estate is an initial focus, but our managed model adapts to whatever your business needs.</p>
+      </div>
+      <div class="grid cols-3" style="margin-top:2.8rem">
+        {industries.map((i) => <IndustryCard ind={i} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Don't see your industry?" text="Our managed model adapts to your business. Tell us what you need and we will scope the right roles." cta="Book a Consultation" />
+</Base>

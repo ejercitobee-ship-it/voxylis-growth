@@ -1,17 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { journey, clientResponsibilities } from '../data/process';
+import { steps, clientResponsibilities } from '../data/process';
 ---
 <Base
   title="How It Works | Voxylis Growth"
-  description="From discovery call to an onboarded professional working inside your business. See the full Voxylis Growth process and what each engagement involves."
+  description="A better way to build your team: Discover, Build, and Manage & Improve. See how Voxylis Growth's managed outsourcing model works end to end."
 >
   <section>
     <div class="wrap">
       <div class="sec-head reveal">
-        <h2 style="font-size:clamp(2rem,4.5vw,3rem)">How it works.</h2>
-        <p>A clear path from first conversation to a professional contributing inside your business, with the structure that keeps the engagement working.</p>
+        <span class="eyebrow" style="display:block;margin-bottom:0.8rem">How It Works</span>
+        <h1 style="font-size:clamp(2rem,4.5vw,3rem)">A Better Way to Build Your Team.</h1>
+        <p>A clear, managed path from first conversation to a professional contributing inside your business.</p>
       </div>
     </div>
   </section>
@@ -19,12 +20,12 @@ import { journey, clientResponsibilities } from '../data/process';
   <section class="band">
     <div class="wrap">
       <div class="timeline" style="margin-inline:auto">
-        {journey.map((s) => (
+        {steps.map((s) => (
           <div class="tl-item reveal">
             <div class="tl-n">{s.n}</div>
             <div class="tl-body">
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
+              <p class="tl-title">{s.title}</p>
+              <p>{s.long}</p>
             </div>
           </div>
         ))}
@@ -34,10 +35,10 @@ import { journey, clientResponsibilities } from '../data/process';
 
   <section>
     <div class="wrap">
-      <div class="grid cols-2" style="gap:clamp(28px,5vw,64px);align-items:start">
+      <div class="split" style="gap:clamp(28px,5vw,64px);align-items:start">
         <div class="prose reveal">
           <h2>What we handle.</h2>
-          <p>We lead the sourcing, evaluation, onboarding, and ongoing oversight. We define the role with you, match experienced professionals, document the workflows, and keep communication and quality reviews going as the engagement continues.</p>
+          <p>We lead the sourcing, evaluation, onboarding, and ongoing oversight. We define the role with you, match experienced professionals, help document the workflows, and keep communication and reviews going as the engagement continues.</p>
         </div>
         <div class="prose reveal">
           <h2>What we ask of you.</h2>
@@ -50,5 +51,5 @@ import { journey, clientResponsibilities } from '../data/process';
     </div>
   </section>
 
-  <CtaBand heading="Ready to see how this fits your business?" cta="Schedule a Discovery Call" />
+  <CtaBand heading="Ready to see how this fits your business?" cta="Book a Consultation" />
 </Base>

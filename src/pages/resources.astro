@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const articles = [
+  { tag: 'Managed Outsourcing', title: 'What managed outsourcing really means', excerpt: 'The difference between hiring a freelancer and building a managed remote team, and why it matters for execution.' },
+  { tag: 'Hiring', title: 'How to scope a role before you hire', excerpt: 'A simple way to define responsibilities and success criteria so the right person does the right work.' },
+  { tag: 'Remote Teams', title: 'Building a remote team that lasts', excerpt: 'What separates a remote hire who stays and grows from one who quietly disengages.' },
+  { tag: 'Operations', title: 'Working across US, UK, and Philippine time zones', excerpt: 'Practical ways to set coverage and communication so the time difference works for you.' },
+  { tag: 'Onboarding', title: 'Onboarding a remote professional the right way', excerpt: 'The first two weeks decide a lot. Here is a structure that sets people up to succeed.' },
+  { tag: 'Growth', title: 'When to start with one role vs a team', excerpt: 'How to decide whether to begin with a single professional or build out a small team.' },
+];
+---
+<Base
+  title="Resources & Insights | Voxylis Growth"
+  description="Practical thinking on managed outsourcing, hiring, remote teams, and operations for growing US and UK businesses."
+>
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:0.8rem">Resources</span>
+        <h1 style="font-size:clamp(2rem,4.5vw,3rem)">Insights for building better teams.</h1>
+        <p>Practical thinking on managed outsourcing, hiring, and running a dependable remote team. New articles are on the way.</p>
+      </div>
+      <div class="grid cols-3" style="margin-top:2.8rem">
+        {articles.map((a) => (
+          <article class="card reveal" style="display:flex;flex-direction:column;gap:0.6rem">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:0.75rem">
+              <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--bronze-text)">{a.tag}</span>
+              <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0.4rem 0.75rem;white-space:nowrap">Coming soon</span>
+            </div>
+            <h2 style="font-size:1.3rem;margin-top:0.2rem">{a.title}</h2>
+            <p class="muted" style="font-size:0.95rem">{a.excerpt}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Prefer to just talk it through?" text="Skip the reading. Tell us what you are weighing and we will give you a straight answer." cta="Book a Consultation" />
+</Base>

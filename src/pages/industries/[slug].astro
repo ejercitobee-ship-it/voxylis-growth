@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Button from '../../components/Button.astro';
+import { industries, getIndustry } from '../../data/industries';
+import { getCategory } from '../../data/services';
+
+export function getStaticPaths() {
+  return industries.map((ind) => ({ params: { slug: ind.slug }, props: { ind } }));
+}
+const { ind } = Astro.props;
+const related = ind.services.map((s) => getCategory(s)).filter(Boolean);
+const contactHref = `/contact/?service=${encodeURIComponent('Industry: ' + ind.title)}`;
+---
+<Base
+  title={`${ind.title} | Voxylis Growth`}
+  description={`${ind.short} Managed outsourcing and skilled Filipino professionals for ${ind.title.toLowerCase()}.`}
+>
+  <section>
+    <div class="wrap">
+      <p class="muted reveal" style="font-size:0.9rem"><a href="/industries/">Industries</a> &nbsp;/&nbsp; {ind.title}</p>
+      <div class="sec-head reveal" style="margin-top:0.9rem">
+        <span class="eyebrow" style="display:block;margin-bottom:0.8rem">Industry</span>
+        <h1 style="font-size:clamp(2rem,4.5vw,3rem)">{ind.title}</h1>
+        <p>{ind.intro}</p>
+      </div>
+      <div class="hero-ctas reveal" style="margin-top:1.8rem">
+        <Button href={contactHref} variant="primary" arrow>Book a Consultation</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap split">
+      <div class="reveal">
+        <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem)">How we help</h2>
+        <ul class="prose" style="list-style:none;padding:0;margin-top:1.4rem;gap:0.8rem">
+          {ind.helps.map((h) => (
+            <li class="feat"><span class="fico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div>{h}</div></li>
+          ))}
+        </ul>
+      </div>
+      <div class="split-img reveal">
+        <img src="/img/why.jpg" width="1200" height="1200" alt="A professional at work in a modern office" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Relevant services</h2><p>The service areas most often matched to this industry.</p></div>
+      <div class="grid cols-3" style="margin-top:2.6rem">
+        {related.map((c) => <ServiceCard cat={c} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading={`Building a team for ${ind.title.toLowerCase()}?`} text="Tell us about your workflows and the support you need. We will scope the right roles and prepare a proposal." cta="Book a Consultation" href={contactHref} />
+</Base>

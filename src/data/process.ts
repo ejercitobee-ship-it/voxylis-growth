@@ -1,21 +1,23 @@
-// Homepage short version (4 steps)
-export const homeSteps = [
-  { title: 'Discover', body: 'We learn your business, workload, and the outcomes you need.' },
-  { title: 'Match', body: 'We identify qualified professionals suited to the role and your standards.' },
-  { title: 'Integrate', body: 'We set responsibilities, access, processes, and a structured onboarding.' },
-  { title: 'Support', body: 'We keep communication, quality oversight, and improvement going.' },
-];
-
-// Full client journey for /how-it-works (8 steps)
-export const journey = [
-  { n: 1, title: 'Discovery call', body: 'We talk through your business, the work that needs coverage, and what success looks like.' },
-  { n: 2, title: 'Business and workflow assessment', body: 'We review the role in context: current processes, tools, volume, and where time is lost.' },
-  { n: 3, title: 'Role definition and success criteria', body: 'We write a clear role scope with responsibilities and the measures that matter to you.' },
-  { n: 4, title: 'Candidate sourcing and practical evaluation', body: 'We source experienced professionals and evaluate skills, communication, and fit for the role.' },
-  { n: 5, title: 'Client interviews and selection', body: 'You interview shortlisted candidates and choose the person who fits your team.' },
-  { n: 6, title: 'Contracting and onboarding', body: 'We handle the engagement details and begin a structured onboarding into your workflows.' },
-  { n: 7, title: 'Workflow documentation and access provisioning', body: 'We document procedures and set up the access and tools the role needs to perform.' },
-  { n: 8, title: 'Ongoing communication and performance reviews', body: 'We maintain regular check-ins, review work quality, and adjust as your needs change.' },
+// Three-step managed model
+export const steps = [
+  {
+    n: 1,
+    title: 'Discover',
+    short: 'We learn your goals, workload, existing processes, and staffing needs.',
+    long: 'We start by understanding your business: your goals, the work that needs coverage, your current processes and tools, and where time is being lost. This is how we scope the right roles rather than assigning a generic assistant.',
+  },
+  {
+    n: 2,
+    title: 'Build',
+    short: 'We identify the right roles and propose a team structure aligned with your needs.',
+    long: 'We identify suitable roles and develop a proposed team structure that fits your needs. We source experienced professionals, evaluate them against the role, and bring you candidates to interview and select.',
+  },
+  {
+    n: 3,
+    title: 'Manage & Improve',
+    short: 'We coordinate delivery, communication, and performance under an agreed service model.',
+    long: 'Once your team is in place, we coordinate delivery, communication, performance expectations, and workflow improvements under the service model we agree with you. The engagement adjusts as your needs change.',
+  },
 ];
 
 export const clientResponsibilities = [

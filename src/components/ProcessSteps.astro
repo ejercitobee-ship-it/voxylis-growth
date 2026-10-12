@@ -1,12 +1,12 @@
 ---
-import { homeSteps } from '../data/process';
+import { steps } from '../data/process';
 ---
-<div class="grid cols-4 steps">
-  {homeSteps.map((s, i) => (
+<div class="grid cols-3 steps">
+  {steps.map((s) => (
     <div class="step reveal">
-      <div class="num">Step {String(i + 1).padStart(2, '0')}</div>
+      <div class="num">{String(s.n).padStart(2, '0')}</div>
       <h3>{s.title}</h3>
-      <p>{s.body}</p>
+      <p>{s.short}</p>
     </div>
   ))}
 </div>
