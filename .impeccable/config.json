@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-12T18:01:11.987Z",
+        "reason": "user confirmed: brief explicitly specifies Inter for body/nav/buttons/forms; headlines use DM Serif Display"
+      }
+    ]
+  }
+}
