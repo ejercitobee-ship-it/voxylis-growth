@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import { company } from '../data/company';
+---
+<Base
+  title="Terms | Voxylis Growth"
+  description="The terms that govern your use of the Voxylis Growth website."
+>
+  <section>
+    <div class="wrap">
+      <div class="prose reveal">
+        <h2 style="font-size:clamp(1.9rem,4vw,2.6rem)">Terms of Use</h2>
+        <p class="muted" style="font-size:0.9rem"><strong>Draft for review.</strong> These terms are a working placeholder and should be reviewed and finalized with legal counsel before launch.</p>
+        <p>These terms govern your use of the {company.legalName} website. By using this site, you agree to them.</p>
+
+        <h3>Informational purpose</h3>
+        <p>The content on this site describes our services in general terms. It is not an offer, a contract, or a guarantee of specific results. Any engagement is governed by a separate written agreement with its own scope, deliverables, and service levels.</p>
+
+        <h3>No guarantees</h3>
+        <p>We describe our selection process and services honestly. We do not guarantee specific outcomes such as a set number of leads, meetings, savings, rankings, or results, and nothing on this site should be read as such a guarantee.</p>
+
+        <h3>Intellectual property</h3>
+        <p>The content, design, and marks on this site belong to {company.legalName} unless noted otherwise. Please do not reproduce them without permission.</p>
+
+        <h3>Contact</h3>
+        <p>Questions about these terms? Email <a href={`mailto:${company.email}`}>{company.email}</a>.</p>
+
+        <p class="muted" style="font-size:0.85rem">Last updated: to be set at launch.</p>
+      </div>
+    </div>
+  </section>
+</Base>

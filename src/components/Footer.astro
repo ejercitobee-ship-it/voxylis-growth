@@ -1,0 +1,38 @@
+---
+import { footerNav } from '../data/nav';
+import { company } from '../data/company';
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="/" class="brand" aria-label="Voxylis Growth home">
+          <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect width="32" height="32" rx="7" fill="#2743c9"></rect>
+            <path d="M8 21l5-6 4 3 7-8" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          Voxylis&nbsp;<b>Growth</b>
+        </a>
+        <p class="footer-tag">Managed outsourcing and dedicated remote staffing. Experienced Filipino professionals for US businesses.</p>
+        <p class="footer-contact">
+          Call or text <a href={company.phoneHref}>{company.phoneDisplay}</a><br />
+          <a href={`mailto:${company.email}`}>{company.email}</a>
+        </p>
+      </div>
+      {footerNav.map((col) => (
+        <div class="footer-col">
+          <h4>{col.heading}</h4>
+          <ul>
+            {col.links.map((l) => (
+              <li><a href={l.href}>{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {company.year} {company.legalName}. All rights reserved.</span>
+      <span>Talent based in the Philippines. Serving businesses across the United States.</span>
+    </div>
+  </div>
+</footer>

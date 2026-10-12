@@ -1,0 +1,14 @@
+---
+import type { Category } from '../data/services';
+interface Props { cat: Category; }
+const { cat } = Astro.props;
+---
+<a href={`/services/${cat.slug}/`} class="card svc-card reveal">
+  <span class="svc-ico">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={cat.icon}></svg>
+  </span>
+  <h3>{cat.title}</h3>
+  <p>{cat.short}</p>
+  <p class="examples"><b>Example roles:</b> {cat.examples}</p>
+  <span class="card-link">Explore roles <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>

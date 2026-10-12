@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import SupervisorCallout from '../components/SupervisorCallout.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const values = [
+  { t: 'Respect for talent', b: 'We treat our professionals as skilled people building careers, never as cheap labor.' },
+  { t: 'Client trust', b: 'Clear scope, honest communication, and work you can rely on without hovering.' },
+  { t: 'Professionalism', b: 'Experienced people who show up prepared, communicate well, and own their responsibilities.' },
+  { t: 'Long-term relationships', b: 'We build for the long run, so your team gets stronger the longer we work together.' },
+];
+---
+<Base
+  title="About Voxylis Growth | Managed Outsourcing for US Businesses"
+  description="Voxylis Growth connects US businesses with experienced Filipino professionals and supports those relationships with structured onboarding, clear expectations, and thoughtful management."
+>
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 style="font-size:clamp(2rem,4.5vw,3rem)">More than extra hands. Dependable professionals.</h2>
+        <p>Voxylis Growth was created around a simple idea: businesses need people who understand their responsibilities, communicate well, and contribute to how the business actually runs.</p>
+      </div>
+      <div class="hero-visual reveal" style="margin-top:2.4rem;border-color:var(--line);box-shadow:var(--shadow-md)">
+        <img src="/img/about-hero.webp" width="1699" height="955" alt="A team of experienced Filipino professionals working together in a modern office" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="prose reveal">
+        <h2>Why we exist.</h2>
+        <p>Too many outsourcing relationships fail because they stop at matching. A task gets handed to a stranger, and both sides end up frustrated. We believe outsourcing should feel like a real extension of your team.</p>
+        <p>We connect US businesses with experienced Filipino professionals and support those working relationships with structured onboarding, clear expectations, and thoughtful management. When the structure is right, remote work is not a compromise. It is an advantage.</p>
+        <p><strong>We keep our claims honest.</strong> We do not invent client logos, testimonials, certifications, or results. We describe our selection process accurately and let the work speak over time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder (real) -->
+  <section>
+    <div class="wrap">
+      <div class="founder-grid">
+        <div class="founder-photo reveal">
+          <img src="/img/belle.webp" width="900" height="1200" alt="Belle Dunn, founder and CEO of Voxylis Growth" loading="lazy" />
+        </div>
+        <div class="prose reveal">
+          <h2>Meet the founder.</h2>
+          <p class="founder-name">Belle Dunn<span>Founder and CEO</span></p>
+          <p>Originally from the Philippines and now based in Chicago, Belle brings more than eight years in customer service, virtual administration, sales support, operations, and technology driven solutions. She has worked side by side with business owners and teams to keep operations organized, responsive, and moving forward.</p>
+          <p>Working remotely herself taught her what truly makes a distributed team succeed. It is never just about finding someone to complete a task. It is about finding the right person, building clear systems, earning trust, communicating well, and giving people the structure to perform at a high level.</p>
+          <p><strong>That belief is the foundation of Voxylis Growth</strong>, connecting US businesses with exceptional Filipino talent while creating meaningful, long-term career opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>What we value.</h2></div>
+      <div class="grid cols-2" style="margin-top:2.4rem">
+        {values.map((v) => (
+          <div class="card reveal">
+            <h3 style="font-size:1.15rem">{v.t}</h3>
+            <p class="muted" style="margin-top:0.5rem;font-size:0.96rem">{v.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="prose reveal">
+        <h2>Why the Philippines.</h2>
+        <p>The Philippines is one of the most trusted homes for remote professional talent in the world. The English is clear and neutral, the service culture runs deep, and the talent pool is experienced and career minded. We build coverage around your business hours so the time difference works for you, not against you.</p>
+      </div>
+      <div style="margin-top:2.6rem"><SupervisorCallout /></div>
+    </div>
+  </section>
+
+  <CtaBand heading="Let's build something dependable together." cta="Discuss Your Hiring Needs" />
+</Base>

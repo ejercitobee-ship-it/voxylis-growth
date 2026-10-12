@@ -1,0 +1,22 @@
+---
+import Button from './Button.astro';
+interface Props {
+  heading?: string;
+  text?: string;
+  cta?: string;
+  href?: string;
+}
+const {
+  heading = "Let's build a team that moves your business forward.",
+  text = 'Tell us the roles you need and we will prepare a tailored proposal. No pressure, no obligation.',
+  cta = 'Discuss Your Hiring Needs',
+  href = '/contact/',
+} = Astro.props;
+---
+<section class="cta-band">
+  <div class="wrap">
+    <h2>{heading}</h2>
+    <p>{text}</p>
+    <Button href={href} variant="on-navy" arrow>{cta}</Button>
+  </div>
+</section>

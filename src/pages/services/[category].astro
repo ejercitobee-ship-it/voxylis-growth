@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import RoleCard from '../../components/RoleCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Button from '../../components/Button.astro';
+import { categories } from '../../data/services';
+
+export function getStaticPaths() {
+  return categories.map((cat) => ({ params: { category: cat.slug }, props: { cat } }));
+}
+const { cat } = Astro.props;
+const others = categories.filter((c) => c.slug !== cat.slug);
+const contactHref = `/contact/?service=${encodeURIComponent(cat.title)}`;
+---
+<Base
+  title={`${cat.title} | Voxylis Growth`}
+  description={`${cat.short} Experienced Filipino professionals for US businesses, matched to your requirements and supported with structured onboarding and oversight.`}
+>
+  <section>
+    <div class="wrap">
+      <p class="muted reveal" style="font-size:0.9rem"><a href="/services/">Talent Solutions</a> &nbsp;/&nbsp; {cat.title}</p>
+      <div class="sec-head reveal" style="margin-top:0.8rem">
+        <h2 style="font-size:clamp(2rem,4.5vw,2.9rem)">{cat.title}</h2>
+        <p>{cat.intro}</p>
+      </div>
+      <div class="hero-ctas reveal" style="margin-top:1.6rem">
+        <Button href={contactHref} variant="primary" arrow>Find Talent for Your Role</Button>
+        <Button href="/how-it-works/" variant="ghost">How it works</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Roles in {cat.title.toLowerCase()}.</h2>
+        <p>Example roles we place in this area. Each is matched to your responsibilities and scoped with you.</p>
+      </div>
+      <div class="grid cols-3" style="margin-top:2.6rem">
+        {cat.roles.map((role) => <RoleCard role={role} contactHref={contactHref} />)}
+      </div>
+      <p class="muted reveal" style="max-width:70ch;margin-top:2rem;font-size:0.95rem">{cat.caveat}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal"><h2 style="font-size:1.5rem">Other talent categories</h2></div>
+      <div class="pills reveal" style="margin-top:1.4rem">
+        {others.map((c) => <a class="pill" href={`/services/${c.slug}/`}>{c.title}</a>)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading={`Looking for ${cat.title.toLowerCase()} support?`} text="Tell us the role and what success looks like. We will prepare a tailored proposal based on scope and seniority." cta="Request a Proposal" href={contactHref} />
+</Base>

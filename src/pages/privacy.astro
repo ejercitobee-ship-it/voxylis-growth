@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { company } from '../data/company';
+---
+<Base
+  title="Privacy Policy | Voxylis Growth"
+  description="How Voxylis Growth collects, uses, and protects the information you share through this website."
+>
+  <section>
+    <div class="wrap">
+      <div class="prose reveal">
+        <h2 style="font-size:clamp(1.9rem,4vw,2.6rem)">Privacy Policy</h2>
+        <p class="muted" style="font-size:0.9rem"><strong>Draft for review.</strong> This policy is a working placeholder and should be reviewed and finalized with legal counsel before launch. It does not guarantee compliance with any specific law.</p>
+        <p>This policy explains how {company.legalName} ("Voxylis Growth," "we," or "us") handles information you provide through this website.</p>
+
+        <h3>Information we collect</h3>
+        <p>We collect the information you choose to share through our contact and inquiry forms, such as your name, business email, company name, website, industry, team size, the roles you are interested in, and any details you add. We do not ask for sensitive personal information, and we ask you not to include it.</p>
+
+        <h3>How we use it</h3>
+        <p>We use your information to respond to your inquiry, prepare a proposal where relevant, and communicate with you about working together. We do not sell your information.</p>
+
+        <h3>How it is processed</h3>
+        <p>Form submissions on this site are delivered to our business inbox through a third-party form service. That provider processes the submission solely to deliver it to us. We keep inquiry details only as long as needed to respond and manage a potential or active engagement.</p>
+
+        <h3>Your choices</h3>
+        <p>You can ask us to update or delete the information you have shared by emailing <a href={`mailto:${company.email}`}>{company.email}</a>.</p>
+
+        <h3>Contact</h3>
+        <p>Questions about this policy? Email <a href={`mailto:${company.email}`}>{company.email}</a>.</p>
+
+        <p class="muted" style="font-size:0.85rem">Last updated: to be set at launch.</p>
+      </div>
+    </div>
+  </section>
+</Base>

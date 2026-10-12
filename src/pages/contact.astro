@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { company } from '../data/company';
+---
+<Base
+  title="Build Your Team | Contact Voxylis Growth"
+  description="Tell us the roles you need and we will prepare a tailored proposal. Managed outsourcing and experienced remote Filipino professionals for US businesses."
+>
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 style="font-size:clamp(2rem,4.5vw,3rem)">Build your team.</h2>
+        <p>Tell us about your business and the work you need covered. We will come back within one business day with next steps and, where it fits, a tailored proposal.</p>
+      </div>
+      <div class="contact-grid" style="margin-top:2.8rem">
+        <aside class="contact-aside reveal">
+          <div class="ca-item">
+            <div class="k">Call or text</div>
+            <div class="v"><a href={company.phoneHref}>{company.phoneDisplay}</a></div>
+          </div>
+          <div class="ca-item">
+            <div class="k">Email</div>
+            <div class="v"><a href={`mailto:${company.email}`}>{company.email}</a></div>
+          </div>
+          <div class="ca-item">
+            <div class="k">What to expect</div>
+            <p class="muted" style="font-size:0.95rem;margin-top:0.4rem">A short discovery conversation, a clear role scope, and a proposal shaped around your volume, coverage hours, and goals. No pressure and no obligation.</p>
+          </div>
+        </aside>
+        <div class="reveal">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

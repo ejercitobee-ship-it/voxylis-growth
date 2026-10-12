@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+---
+<Base title="Page not found | Voxylis Growth" description="The page you were looking for could not be found." noindex={true}>
+  <section>
+    <div class="wrap notfound">
+      <h1>404</h1>
+      <h2 style="margin-top:0.5rem">We couldn't find that page.</h2>
+      <p class="lead" style="margin:1rem auto 2rem">The link may be out of date, or the page may have moved. Here are a few good places to go instead.</p>
+      <div class="hero-ctas" style="justify-content:center">
+        <Button href="/" variant="primary">Back to home</Button>
+        <Button href="/services/" variant="ghost">Explore our services</Button>
+        <Button href="/contact/" variant="ghost">Build your team</Button>
+      </div>
+    </div>
+  </section>
+</Base>

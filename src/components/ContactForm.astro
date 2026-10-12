@@ -1,0 +1,167 @@
+---
+import { company } from '../data/company';
+import { categories } from '../data/services';
+interface Props { prefillService?: string; }
+const { prefillService = '' } = Astro.props;
+
+const industries = ['Professional services', 'SaaS and technology', 'E-commerce', 'Property management and real estate', 'Marketing agency', 'Healthcare-related', 'Finance-related', 'Other'];
+const sizes = ['Just me', '2 to 10', '11 to 50', '51 to 200', '200+'];
+const counts = ['1', '2 to 3', '4 to 6', '7 or more', 'Not sure yet'];
+const arrangements = ['Full-time', 'Part-time', 'Project-based', 'Not sure yet'];
+const starts = ['As soon as possible', 'Within 30 days', '1 to 3 months', 'Just exploring'];
+---
+<form class="form" id="contact-form" novalidate data-key={company.form.web3formsKey} data-endpoint={company.form.endpoint} data-subject={company.form.subject} data-email={company.email}>
+  <div class="form-row">
+    <div class="field">
+      <label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label>
+      <input id="f-name" name="name" type="text" autocomplete="name" required />
+      <p class="field-error">Please enter your name.</p>
+    </div>
+    <div class="field">
+      <label for="f-email">Business email <span class="req" aria-hidden="true">*</span></label>
+      <input id="f-email" name="email" type="email" autocomplete="email" required />
+      <p class="field-error">Please enter a valid business email.</p>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="field">
+      <label for="f-company">Company name <span class="req" aria-hidden="true">*</span></label>
+      <input id="f-company" name="company" type="text" autocomplete="organization" required />
+      <p class="field-error">Please enter your company name.</p>
+    </div>
+    <div class="field">
+      <label for="f-website">Website <span class="muted">(optional)</span></label>
+      <input id="f-website" name="website" type="text" inputmode="url" placeholder="yourcompany.com" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="field">
+      <label for="f-industry">Industry</label>
+      <select id="f-industry" name="industry">
+        {industries.map((i) => <option>{i}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-size">Business size</label>
+      <select id="f-size" name="business_size">
+        {sizes.map((s) => <option>{s}</option>)}
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="field">
+      <label for="f-service">Service category</label>
+      <select id="f-service" name="service_category">
+        <option value="">Not sure yet</option>
+        {categories.map((c) => <option selected={c.title === prefillService}>{c.title}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-count">Professionals needed</label>
+      <select id="f-count" name="professionals_needed">
+        {counts.map((c) => <option>{c}</option>)}
+      </select>
+    </div>
+  </div>
+  <div class="field">
+    <label for="f-roles">Role or roles needed</label>
+    <input id="f-roles" name="roles" type="text" placeholder="e.g. Executive Assistant, Customer Support Specialist" />
+  </div>
+  <div class="form-row">
+    <div class="field">
+      <label for="f-arrangement">Preferred arrangement</label>
+      <select id="f-arrangement" name="arrangement">
+        {arrangements.map((a) => <option>{a}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-start">Expected start</label>
+      <select id="f-start" name="expected_start">
+        {starts.map((s) => <option>{s}</option>)}
+      </select>
+    </div>
+  </div>
+  <div class="field">
+    <label for="f-details">Additional details</label>
+    <textarea id="f-details" name="details" placeholder="Tell us about the work, tools, and coverage hours you have in mind."></textarea>
+  </div>
+  <label class="consent field">
+    <span style="display:flex;gap:0.6rem;align-items:flex-start">
+      <input id="f-consent" name="consent" type="checkbox" required />
+      <span>I agree that Voxylis Growth may contact me about my inquiry and I have read the <a href="/privacy/">privacy policy</a>.</span>
+    </span>
+    <p class="field-error">Please confirm to continue.</p>
+  </label>
+  <!-- Honeypot for spam -->
+  <input type="checkbox" name="botcheck" tabindex="-1" style="position:absolute;left:-9999px" aria-hidden="true" />
+  <button type="submit" class="btn btn-primary" style="align-self:flex-start">Request a Proposal</button>
+  <p class="form-note">We reply within one business day. Your details are used only to respond to your inquiry.</p>
+  <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+</form>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    try {
+      var svc = new URLSearchParams(window.location.search).get('service');
+      if (svc) {
+        var sel = form.querySelector('#f-service');
+        if (sel) Array.prototype.forEach.call(sel.options, function (o) { if (o.value === svc || o.text === svc) o.selected = true; });
+      }
+    } catch (e) {}
+    var status = document.getElementById('form-status');
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    function fieldOf(el) { return el.closest('.field'); }
+    form.querySelectorAll('input, select, textarea').forEach(function (el) {
+      el.addEventListener('input', function () { var f = fieldOf(el); if (f) f.classList.remove('invalid'); });
+      el.addEventListener('change', function () { var f = fieldOf(el); if (f) f.classList.remove('invalid'); });
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      status.className = 'form-status';
+      var name = form.querySelector('#f-name');
+      var email = form.querySelector('#f-email');
+      var company = form.querySelector('#f-company');
+      var consent = form.querySelector('#f-consent');
+      var ok = true;
+      function mark(el, cond) { var f = fieldOf(el); if (!cond) { f.classList.add('invalid'); ok = false; } else { f.classList.remove('invalid'); } }
+      mark(name, name.value.trim().length > 0);
+      mark(email, emailRe.test(email.value.trim()));
+      mark(company, company.value.trim().length > 0);
+      mark(consent, consent.checked);
+      if (!ok) { var first = form.querySelector('.field.invalid input'); if (first) first.focus(); return; }
+      if (form.querySelector('[name=botcheck]').checked) return;
+
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true; var label = btn.textContent; btn.textContent = 'Sending...';
+      var data = { access_key: form.dataset.key, subject: form.dataset.subject, from_name: 'Voxylis Growth Website' };
+      form.querySelectorAll('input, select, textarea').forEach(function (el) {
+        if (el.name && el.name !== 'botcheck' && el.type !== 'checkbox') data[el.name] = el.value;
+      });
+      data.consent = consent.checked ? 'Yes' : 'No';
+
+      fetch(form.dataset.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then(function (r) { return r.json().then(function (d) { return { okHttp: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (res.okHttp && res.d && res.d.success) {
+            status.className = 'form-status ok';
+            status.textContent = 'Thank you. Your request has been received and we will be in touch within one business day.';
+            form.reset();
+            btn.textContent = 'Request sent';
+          } else {
+            throw new Error('rejected');
+          }
+        })
+        .catch(function () {
+          status.className = 'form-status err';
+          status.textContent = 'Something went wrong sending your request. Please email us at ' + form.dataset.email + ', or try again in a moment.';
+          btn.disabled = false; btn.textContent = label;
+        });
+    });
+  })();
+</script>

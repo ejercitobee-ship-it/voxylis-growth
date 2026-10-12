@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { categories } from '../../data/services';
+
+const models = [
+  { t: 'Dedicated remote staffing', b: 'A professional who works consistently inside your business, matched to a defined role and your standards.' },
+  { t: 'Managed outsourcing', b: 'Dedicated talent plus the structure around it: onboarding, documented workflows, and ongoing service oversight.' },
+  { t: 'Role-based team expansion', b: 'Add specific roles as demand grows, from one professional to a small team, without rebuilding your process each time.' },
+];
+---
+<Base
+  title="Talent Solutions & Managed Outsourcing Services | Voxylis Growth"
+  description="Experienced Filipino professionals organized by business function: operations, customer success, sales, technical, marketing, and e-commerce. Dedicated staffing and managed outsourcing for US businesses."
+>
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 style="font-size:clamp(2rem,4.5vw,3rem)">Talent solutions, organized by business function.</h2>
+        <p>Find experienced professionals for the work in front of you. Every role is matched to your actual requirements, scoped with you, and supported through structured onboarding and ongoing oversight.</p>
+      </div>
+      <div class="grid cols-3" style="margin-top:2.8rem">
+        {categories.map((c) => <ServiceCard cat={c} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <h2>Three ways to work with us.</h2>
+        <p>Different businesses need different arrangements. We help you choose the one that fits.</p>
+      </div>
+      <div class="grid cols-3" style="margin-top:2.6rem">
+        {models.map((m) => (
+          <div class="card reveal">
+            <h3 style="font-size:1.18rem">{m.t}</h3>
+            <p class="muted" style="margin-top:0.5rem;font-size:0.96rem">{m.b}</p>
+          </div>
+        ))}
+      </div>
+      <p class="muted reveal" style="max-width:70ch;margin:2.2rem auto 0;text-align:center;font-size:0.95rem">
+        Scope and service levels are agreed per engagement. We do not assume that every arrangement includes unlimited management, round the clock coverage, backup personnel, or guaranteed replacements. We define exactly what is included before we begin.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand heading="Not sure which roles you need?" text="Tell us about your business and the work that keeps piling up. We will help you scope the right roles and prepare a proposal." cta="Request a Proposal" />
+</Base>

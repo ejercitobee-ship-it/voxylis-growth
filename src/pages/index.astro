@@ -1,0 +1,131 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import SupervisorCallout from '../components/SupervisorCallout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { categories, industries } from '../data/services';
+import { company } from '../data/company';
+
+const problems = [
+  { t: 'Growing workloads, not enough capacity', b: 'Demand rises faster than you can hire, and the backlog lands on your best people.', i: '<path d="M3 17l6-6 4 4 7-7"/><path d="M14 7h7v7"/>' },
+  { t: 'Hard to find dependable talent', b: 'Finding experienced, reliable people who communicate well takes time you do not have.', i: '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>' },
+  { t: 'Repetitive work crowds out priorities', b: 'Recurring tasks pull your team away from the higher-value work only they can do.', i: '<path d="M3 12a9 9 0 1 0 2.6-6.4"/><path d="M3 3v4h4"/>' },
+  { t: 'Inconsistent, undocumented execution', b: 'Work happens differently every time because the process lives in people’s heads.', i: '<path d="M8 6h11M8 12h11M8 18h11"/><path d="M3 6h.01M3 12h.01M3 18h.01"/>' },
+  { t: 'Hiring and onboarding eat management time', b: 'Recruiting, training, and managing new hires becomes a job on top of the job.', i: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/>' },
+];
+---
+<Base
+  title="Managed Outsourcing & Remote Filipino Talent for US Businesses | Voxylis Growth"
+  description="Build dependable remote teams with experienced Filipino professionals. Voxylis Growth combines carefully matched talent with structured onboarding and ongoing operational support for US businesses."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Experienced Talent. Reliable Operations. Room to Grow.</h1>
+        <p class="lead">Build a stronger business with experienced Filipino professionals who integrate into your workflows, support your customers, and help your team operate more efficiently. Voxylis Growth combines carefully matched talent with structured onboarding and ongoing support.</p>
+        <div class="hero-ctas">
+          <Button href="/contact/" variant="primary" arrow>Build Your Remote Team</Button>
+          <Button href="/services/" variant="ghost-navy">Explore Our Roles</Button>
+        </div>
+        <p class="hero-note"><span class="dot"></span> For US businesses, with remote talent based in the Philippines.</p>
+      </div>
+      <div class="hero-visual">
+        <img src="/img/hero.webp" width="1699" height="955" alt="A modern remote workspace with a laptop showing business growth, connected to clients worldwide" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / solution -->
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Where growing businesses lose time and momentum.</h2>
+        <p>Most teams do not lack ambition. They lack dependable capacity. Here is where that shows up, and how a managed remote team helps.</p>
+      </div>
+      <div class="grid cols-3" style="margin-top:2.6rem">
+        {problems.map((p) => (
+          <div class="feat reveal">
+            <span class="fico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" set:html={p.i}></svg></span>
+            <div><h3>{p.t}</h3><p>{p.b}</p></div>
+          </div>
+        ))}
+        <div class="feat reveal" style="align-items:center">
+          <div>
+            <h3>How Voxylis Growth helps</h3>
+            <p>We match experienced professionals to your real responsibilities, define the role clearly, run a structured onboarding, help document your workflows, and provide ongoing service oversight so execution stays consistent.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Talent categories -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <h2>Explore our talent categories.</h2>
+        <p>Experienced professionals organized by business function, so you can find the right support for the work in front of you.</p>
+      </div>
+      <div class="grid cols-3" style="margin-top:2.8rem">
+        {categories.map((c) => <ServiceCard cat={c} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <h2>A simple way to build your team.</h2>
+        <p>Four steps from first conversation to a professional working inside your business.</p>
+      </div>
+      <div style="margin-top:2.8rem"><ProcessSteps /></div>
+      <div class="reveal" style="text-align:center;margin-top:2.6rem">
+        <Button href="/how-it-works/" variant="ghost" arrow>See the full process</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Managed outsourcing difference -->
+  <section>
+    <div class="wrap">
+      <div class="grid cols-2" style="align-items:center;gap:clamp(28px,5vw,64px)">
+        <div class="prose reveal">
+          <h2>The managed outsourcing difference.</h2>
+          <p>Hiring a remote professional is only the start. Voxylis Growth goes further by helping establish the structure that makes the relationship work: clear workflows, defined responsibilities, communication routines, and accountability.</p>
+          <p>The result is a professional who performs like part of your team, not a task sent off to a stranger. The exact scope of each service arrangement is agreed with you, so expectations are clear from day one.</p>
+          <Button href="/services/" variant="ghost" arrow>See how our services work</Button>
+        </div>
+        <ul class="prose reveal" style="list-style:none;padding:0;gap:0.9rem">
+          <li class="feat"><span class="fico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><strong>Role matching, not generalists.</strong> People selected for your needs, not interchangeable task-takers.</div></li>
+          <li class="feat"><span class="fico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><strong>Structured onboarding.</strong> Responsibilities, access, and documented procedures set up from the start.</div></li>
+          <li class="feat"><span class="fico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><strong>Ongoing service oversight.</strong> Check-ins, work reviews, and clear escalation, scoped to your engagement.</div></li>
+          <li class="feat"><span class="fico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><strong>Scales with you.</strong> Start with one professional and expand as demand and budget allow.</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supervisor / oversight callout -->
+  <section class="band">
+    <div class="wrap"><SupervisorCallout /></div>
+  </section>
+
+  <!-- Who we serve -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <h2>Who we serve.</h2>
+        <p>Examples of the businesses we support, not the limits of who we work with.</p>
+      </div>
+      <div class="pills reveal" style="justify-content:center;margin-top:2.2rem">
+        {industries.map((i) => <span class="pill">{i}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Let's build a team that moves your business forward." cta="Discuss Your Hiring Needs" />
+</Base>

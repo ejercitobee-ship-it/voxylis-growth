@@ -1,0 +1,17 @@
+---
+import { faqs } from '../data/faqs';
+interface Props { limit?: number; }
+const { limit } = Astro.props;
+const items = limit ? faqs.slice(0, limit) : faqs;
+---
+<div class="faq-list">
+  {items.map((f) => (
+    <details class="faq-item reveal">
+      <summary>
+        {f.q}
+        <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+      </summary>
+      <div class="faq-a">{f.a}</div>
+    </details>
+  ))}
+</div>

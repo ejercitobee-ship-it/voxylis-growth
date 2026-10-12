@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqs } from '../data/faqs';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base
+  title="Frequently Asked Questions | Voxylis Growth"
+  description="Answers about managed outsourcing, the roles we provide, where our professionals are based, how we evaluate candidates, pricing, and more."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section>
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <h2 style="font-size:clamp(2rem,4.5vw,3rem)">Questions, answered.</h2>
+        <p>Straightforward answers about how Voxylis Growth works. If something is not here, just ask.</p>
+      </div>
+      <div style="margin-top:2.6rem"><Faq /></div>
+    </div>
+  </section>
+
+  <CtaBand heading="Still have a question?" text="Tell us what you are weighing and we will give you a straight answer." cta="Discuss Your Hiring Needs" />
+</Base>
