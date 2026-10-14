@@ -4,10 +4,9 @@ import { categories } from '../data/services';
 interface Props { prefillService?: string; }
 const { prefillService = '' } = Astro.props;
 
-const industries = ['Professional services', 'SaaS and technology', 'E-commerce', 'Property management and real estate', 'Marketing agency', 'Healthcare-related', 'Finance-related', 'Other'];
+const industries = ['Professional services', 'SaaS and technology', 'E-commerce and retail', 'Property management and real estate', 'Education and e-learning', 'Healthcare and wellness', 'Other'];
 const sizes = ['Just me', '2 to 10', '11 to 50', '51 to 200', '200+'];
-const counts = ['1', '2 to 3', '4 to 6', '7 or more', 'Not sure yet'];
-const arrangements = ['Full-time', 'Part-time', 'Project-based', 'Not sure yet'];
+const engagements = ['One-time project', 'Ongoing advisory', 'Not sure yet'];
 const starts = ['As soon as possible', 'Within 30 days', '1 to 3 months', 'Just exploring'];
 ---
 <form class="form" id="contact-form" novalidate data-key={company.form.web3formsKey} data-endpoint={company.form.endpoint} data-subject={company.form.subject} data-email={company.email}>
@@ -50,40 +49,32 @@ const starts = ['As soon as possible', 'Within 30 days', '1 to 3 months', 'Just 
   </div>
   <div class="form-row">
     <div class="field">
-      <label for="f-service">Service category</label>
-      <select id="f-service" name="service_category">
+      <label for="f-service">Where you'd like help</label>
+      <select id="f-service" name="service_area">
         <option value="">Not sure yet</option>
         {categories.map((c) => <option selected={c.title === prefillService}>{c.title}</option>)}
       </select>
     </div>
     <div class="field">
-      <label for="f-count">Professionals needed</label>
-      <select id="f-count" name="professionals_needed">
-        {counts.map((c) => <option>{c}</option>)}
+      <label for="f-engagement">Type of engagement</label>
+      <select id="f-engagement" name="engagement_type">
+        {engagements.map((e) => <option>{e}</option>)}
       </select>
     </div>
   </div>
   <div class="field">
-    <label for="f-roles">Role or roles needed</label>
-    <input id="f-roles" name="roles" type="text" placeholder="e.g. Executive Assistant, Customer Support Specialist" />
+    <label for="f-goal">Your main growth goal</label>
+    <input id="f-goal" name="primary_goal" type="text" placeholder="e.g. Bring in more qualified leads, fix our sales process, scale operations" />
   </div>
-  <div class="form-row">
-    <div class="field">
-      <label for="f-arrangement">Preferred arrangement</label>
-      <select id="f-arrangement" name="arrangement">
-        {arrangements.map((a) => <option>{a}</option>)}
-      </select>
-    </div>
-    <div class="field">
-      <label for="f-start">Expected start</label>
-      <select id="f-start" name="expected_start">
-        {starts.map((s) => <option>{s}</option>)}
-      </select>
-    </div>
+  <div class="field">
+    <label for="f-start">Timeline</label>
+    <select id="f-start" name="timeline">
+      {starts.map((s) => <option>{s}</option>)}
+    </select>
   </div>
   <div class="field">
     <label for="f-details">Additional details</label>
-    <textarea id="f-details" name="details" placeholder="Tell us about the work, tools, and coverage hours you have in mind."></textarea>
+    <textarea id="f-details" name="details" placeholder="Tell us where growth feels stuck, what you've tried, and what success would look like."></textarea>
   </div>
   <label class="consent field">
     <span style="display:flex;gap:0.6rem;align-items:flex-start">

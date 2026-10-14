@@ -1,8 +1,8 @@
-export interface Role {
+export interface Offering {
   title: string;
   description: string;
-  responsibilities: string[];
-  engagement: string;
+  responsibilities: string[]; // what the engagement typically includes
+  engagement: string; // format of the work
 }
 
 export interface Category {
@@ -13,125 +13,113 @@ export interface Category {
   intro: string;
   caveat: string;
   icon: string; // inner SVG (24x24, currentColor stroke)
-  roles: Role[];
+  roles: Offering[];
 }
 
 const ic = {
-  cx: '<circle cx="12" cy="12" r="9"/><path d="M8.5 15a4.5 4.5 0 0 0 7 0"/><path d="M9 10h.01M15 10h.01"/>',
-  exec: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M8 12h8M8 16h5"/>',
-  sales: '<path d="M3 17l6-6 4 4 7-7"/><path d="M14 7h7v7"/>',
+  strategy: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>',
   marketing: '<path d="M4 11v2a1 1 0 0 0 1 1h2l5 4V6L7 10H5a1 1 0 0 0-1 1z"/><path d="M16 8a4 4 0 0 1 0 8"/><path d="M19 5.5a8 8 0 0 1 0 13"/>',
-  tech: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 9l-2.5 3L9 15M15 9l2.5 3L15 15"/>',
-  ops: '<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.3 12.2a1 1 0 0 0 1 .8h9a1 1 0 0 0 1-.8L21 7H6"/>',
+  sales: '<path d="M3 17l6-6 4 4 7-7"/><path d="M14 7h7v7"/>',
+  ops: '<circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a1.65 1.65 0 0 0 .33 1.82l.05.05a2 2 0 1 1-2.83 2.83l-.05-.05a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.08a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.05.05a2 2 0 1 1-2.83-2.83l.05-.05a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.08a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.05-.05a2 2 0 1 1 2.83-2.83l.05.05a1.65 1.65 0 0 0 1.82.33 1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.08a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.05-.05a2 2 0 1 1 2.83 2.83l-.05.05a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.08a1.65 1.65 0 0 0-1.51 1z"/>',
+  analytics: '<path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="7"/><rect x="12" y="6" width="3" height="11"/><rect x="17" y="13" width="3" height="4"/>',
+  digital: '<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.3 12.2a1 1 0 0 0 1 .8h9a1 1 0 0 0 1-.8L21 7H6"/>',
 };
 
 export const categories: Category[] = [
   {
-    slug: 'customer-experience',
-    title: 'Customer Experience & Support',
-    short: 'Warm, capable professionals who handle inquiries, resolve issues, and keep customers loyal.',
-    examples: 'Customer Support Specialist, Onboarding Specialist, Help Desk',
+    slug: 'growth-strategy',
+    title: 'Growth Strategy & Planning',
+    short: 'A clear, prioritized plan for where to grow next and the few moves that will matter most.',
+    examples: 'Growth audits, strategy sprints, go-to-market planning, quarterly roadmaps',
     intro:
-      'Experienced professionals who represent your brand well on every interaction. They manage customer inquiries, email and chat support, onboarding, ticket workflows, and the service coordination that keeps customers happy and loyal.',
-    caveat: 'Advanced technical and regulated customer interactions are scoped separately and matched to candidates with the right experience.',
-    icon: ic.cx,
+      'We help you step back, look at the whole business, and decide where growth should come from next. Together we pressure test your goals, your market, your numbers, and your capacity, then turn that into a focused plan you can actually run.',
+    caveat: 'A strategy sets direction and priorities. It does not guarantee a specific revenue figure, and the results depend on execution, market conditions, and the decisions you make along the way.',
+    icon: ic.strategy,
     roles: [
-      { title: 'Customer Support Specialist', description: 'Answers customer questions across email, chat, and tickets with clear, friendly, accurate responses.', responsibilities: ['Respond to inquiries across channels', 'Manage and resolve support tickets', 'Document common questions and answers'], engagement: 'Part-time or full-time' },
-      { title: 'Customer Success Specialist', description: 'Helps customers get value from your product and stay engaged over time.', responsibilities: ['Guide onboarding and adoption', 'Run check-ins and follow-ups', 'Surface risks and opportunities'], engagement: 'Full-time' },
-      { title: 'Customer Experience Coordinator', description: 'Keeps the customer journey smooth by coordinating touchpoints and reducing friction.', responsibilities: ['Coordinate across support and success', 'Improve common pain points', 'Maintain help content and templates'], engagement: 'Part-time or full-time' },
-      { title: 'Client Onboarding Specialist', description: 'Gets new customers set up and confident so they succeed early.', responsibilities: ['Run structured onboarding steps', 'Prepare accounts, data, and access', 'Follow up until the customer is active'], engagement: 'Full-time' },
-      { title: 'Technical Support Representative', description: 'Resolves product and technical questions that go beyond basic support.', responsibilities: ['Troubleshoot product and account issues', 'Escalate with clear documentation', 'Maintain troubleshooting notes'], engagement: 'Full-time' },
-      { title: 'Help Desk Support Specialist', description: 'First line of response for help requests, organized and responsive.', responsibilities: ['Triage and route incoming requests', 'Resolve common issues quickly', 'Keep the queue clean and current'], engagement: 'Part-time or full-time' },
+      { title: 'Growth Audit', description: 'A structured review of your business to find where growth is stalling and where the biggest opportunities sit.', responsibilities: ['Review goals, offers, pricing, and channels', 'Map where revenue and leads come from today', 'Surface the constraints holding growth back'], engagement: 'Project' },
+      { title: 'Strategy Sprint', description: 'A focused working session that turns a messy set of priorities into one clear plan.', responsibilities: ['Clarify the goal and the few moves that matter', 'Prioritize by impact and effort', 'Leave with a written, ranked plan'], engagement: 'Workshop or project' },
+      { title: 'Go-to-Market Planning', description: 'A practical plan for taking a product, service, or new market to the right buyers.', responsibilities: ['Define the audience and positioning', 'Choose channels and the first campaigns', 'Set targets and a launch sequence'], engagement: 'Project' },
+      { title: 'Quarterly Growth Roadmap', description: 'A rolling plan that keeps the business focused on the right priorities each quarter.', responsibilities: ['Set quarterly goals and milestones', 'Assign owners and clear next steps', 'Review progress and adjust'], engagement: 'Ongoing advisory' },
     ],
   },
   {
-    slug: 'executive-admin',
-    title: 'Executive & Administrative Support',
-    short: 'Dependable support for calendars, inboxes, documentation, research, and coordination.',
-    examples: 'Executive Assistant, Administrative Specialist, Project Coordinator',
+    slug: 'marketing-demand',
+    title: 'Marketing & Demand Generation',
+    short: 'A marketing engine that brings in the right audience and turns attention into qualified leads.',
+    examples: 'Positioning, content strategy, paid and organic channels, email and lifecycle',
     intro:
-      'Professionals who keep leaders and teams organized. They own calendar management, inbox support, documentation, research, and the administrative coordination that keeps the day to day running smoothly.',
-    caveat: 'Each role is scoped to your workflows and tools. Responsibilities are agreed up front rather than assumed.',
-    icon: ic.exec,
-    roles: [
-      { title: 'Executive Assistant', description: 'A dependable right hand for leaders, managing calendars, inboxes, travel, and follow-ups.', responsibilities: ['Calendar, inbox, and meeting coordination', 'Travel, documents, and follow-up tracking', 'Light research and briefing preparation'], engagement: 'Part-time or full-time' },
-      { title: 'Administrative Specialist', description: 'Handles the recurring administrative work that keeps a team running, accurately and on time.', responsibilities: ['Data entry and records maintenance', 'Form, document, and template handling', 'Scheduling and internal coordination'], engagement: 'Part-time or full-time' },
-      { title: 'Project Coordinator', description: 'Keeps projects on schedule with clear task tracking, status updates, and coordination.', responsibilities: ['Maintain project plans and timelines', 'Track status and flag blockers early', 'Prepare updates for stakeholders'], engagement: 'Project-based or full-time' },
-      { title: 'Virtual Office Manager', description: 'A central point of coordination for a distributed team, keeping tools and routines in order.', responsibilities: ['Manage shared tools and documents', 'Coordinate schedules and vendors', 'Maintain internal processes'], engagement: 'Part-time or full-time' },
-      { title: 'Data and Reporting Specialist', description: 'Turns scattered data into clean, consistent reports leaders can act on.', responsibilities: ['Compile and clean data from sources', 'Build and maintain recurring reports', 'Flag trends and inconsistencies'], engagement: 'Part-time or full-time' },
-      { title: 'CRM Administrator', description: 'Keeps your CRM clean and reliable so pipeline and reporting reflect reality.', responsibilities: ['Maintain accurate records and fields', 'Standardize stages and data entry', 'Prepare lists, segments, and reports'], engagement: 'Part-time or full-time' },
-    ],
-  },
-  {
-    slug: 'sales',
-    title: 'Sales & Lead Generation',
-    short: 'Support that fills and maintains your pipeline, from research to appointment setting.',
-    examples: 'SDR, Lead Generation Specialist, Appointment Setter',
-    intro:
-      'Professionals who do the prospect research, CRM management, lead qualification, outreach support, and appointment coordination that free your closers to close. Outreach follows your approved messaging and applicable laws.',
-    caveat: 'We do not promise a specific number of leads, meetings, or conversions. Outreach follows client-approved messaging and applicable laws.',
-    icon: ic.sales,
-    roles: [
-      { title: 'Sales Development Representative', description: 'Works the top of your funnel with researched, approved outreach that books real conversations.', responsibilities: ['Run outreach on approved messaging', 'Qualify and route interested leads', 'Keep CRM activity accurate'], engagement: 'Full-time' },
-      { title: 'Lead Generation Specialist', description: 'Builds targeted, accurate prospect lists so your outreach reaches the right people.', responsibilities: ['Research and build prospect lists', 'Verify and enrich contact data', 'Maintain lists in your CRM'], engagement: 'Part-time or full-time' },
-      { title: 'Appointment Setter', description: 'Turns interest into booked meetings on your team’s calendar.', responsibilities: ['Follow up with interested prospects', 'Coordinate and confirm appointments', 'Reduce no-shows with reminders'], engagement: 'Part-time or full-time' },
-      { title: 'Sales Support Coordinator', description: 'Handles the administrative side of selling so reps stay in front of prospects.', responsibilities: ['Prepare proposals and documents', 'Coordinate follow-ups and scheduling', 'Keep deal records up to date'], engagement: 'Part-time or full-time' },
-      { title: 'CRM and Pipeline Specialist', description: 'Keeps your pipeline clean, consistent, and reportable.', responsibilities: ['Maintain accurate pipeline stages', 'Standardize data and activity logging', 'Prepare pipeline reports'], engagement: 'Part-time or full-time' },
-      { title: 'Outbound Research Specialist', description: 'Deep account and contact research that sharpens targeting and messaging.', responsibilities: ['Research accounts and decision makers', 'Gather signals and context', 'Document findings for outreach'], engagement: 'Part-time or full-time' },
-    ],
-  },
-  {
-    slug: 'marketing',
-    title: 'Marketing & Creative',
-    short: 'Execution support for content, social media, design, campaigns, and marketing operations.',
-    examples: 'Social Media Coordinator, Content Specialist, Graphic Designer',
-    intro:
-      'Professionals who execute the marketing work consistently: content coordination, social media support, graphic design, campaign assistance, publishing workflows, and marketing operations. They extend your marketing team rather than replace your strategy.',
-    caveat: 'We support execution and coordination. We do not promise search rankings, guaranteed reach, or guaranteed advertising returns.',
+      'We help you get in front of the right people and give them a reason to act. From positioning and messaging to the channels and campaigns that fit your business, we build a marketing approach you can sustain, not a one-off burst.',
+    caveat: 'We build and advise on marketing strategy and execution. We do not promise specific search rankings, guaranteed reach, or a guaranteed return on ad spend.',
     icon: ic.marketing,
     roles: [
-      { title: 'Social Media Coordinator', description: 'Keeps your social presence active, consistent, and on brand.', responsibilities: ['Schedule and publish content', 'Engage and monitor comments', 'Report on reach and engagement'], engagement: 'Part-time or full-time' },
-      { title: 'Content Operations Specialist', description: 'Runs the content pipeline from draft to published, on schedule.', responsibilities: ['Manage the content calendar', 'Format and publish content', 'Maintain the content library'], engagement: 'Part-time or full-time' },
-      { title: 'Graphic Designer', description: 'Produces clean, on-brand visuals for your campaigns and channels.', responsibilities: ['Design social and marketing assets', 'Maintain brand consistency', 'Prepare files for each platform'], engagement: 'Part-time or project-based' },
-      { title: 'Video Editor', description: 'Edits raw footage into polished, platform-ready video.', responsibilities: ['Edit short and long-form video', 'Add captions, graphics, and sound', 'Export for each channel'], engagement: 'Part-time or project-based' },
-      { title: 'Email Marketing Specialist', description: 'Builds, sends, and reports on your email campaigns and flows.', responsibilities: ['Build and schedule campaigns', 'Maintain lists and segments', 'Report on opens, clicks, and results'], engagement: 'Part-time or full-time' },
-      { title: 'Marketing Operations Coordinator', description: 'Keeps marketing running with coordination, reporting, and tool hygiene.', responsibilities: ['Coordinate projects and assets', 'Maintain marketing tools and data', 'Prepare recurring reports'], engagement: 'Full-time' },
+      { title: 'Positioning & Messaging', description: 'A clear story for what you do, who it is for, and why it is different.', responsibilities: ['Sharpen your core message and offers', 'Define the audience and their problems', 'Align website and campaign language'], engagement: 'Project' },
+      { title: 'Content & Organic Strategy', description: 'A content plan that builds trust and brings in buyers over time.', responsibilities: ['Plan topics around real buyer questions', 'Set a realistic publishing cadence', 'Define how content turns into leads'], engagement: 'Project or ongoing' },
+      { title: 'Paid Channel Strategy', description: 'A focused plan for the paid channels most likely to work for your business.', responsibilities: ['Choose channels and budget allocation', 'Define offers, targeting, and tracking', 'Set up measurement before you spend'], engagement: 'Advisory or hands-on' },
+      { title: 'Email & Lifecycle', description: 'Automated and ongoing email that nurtures leads and keeps customers coming back.', responsibilities: ['Map the lifecycle from lead to repeat', 'Plan welcome, nurture, and win-back flows', 'Define the metrics that matter'], engagement: 'Project or ongoing' },
     ],
   },
   {
-    slug: 'technical',
-    title: 'Technical & IT Services',
-    short: 'Technical professionals for support, website maintenance, QA, automation, and reporting.',
-    examples: 'IT Support, Website Maintenance, QA Tester',
+    slug: 'sales-revenue',
+    title: 'Sales & Revenue Growth',
+    short: 'A sales process and pipeline that convert interest into booked, closed, and repeat revenue.',
+    examples: 'Sales process design, pipeline and CRM, outreach and follow-up, pricing',
     intro:
-      'Technical talent matched to the work, from day to day technical support and website maintenance to QA, automation, and reporting. We differentiate general technical support from specialized development and engineering, and scope accordingly.',
-    caveat: 'Advanced technical roles are subject to skills assessment and client-specific requirements. We do not claim every specialist covers every stack.',
-    icon: ic.tech,
+      'We help you turn interest into revenue with a sales process that fits how your buyers actually decide. From pipeline and follow-up to pricing and CRM, we tighten the path from first contact to closed deal, then to repeat business.',
+    caveat: 'We design and improve your sales process and pipeline. We do not promise a specific number of leads, meetings, or closed deals, and outcomes depend on your market and execution.',
+    icon: ic.sales,
     roles: [
-      { title: 'IT Support Specialist', description: 'Keeps your team productive by resolving everyday IT and account issues.', responsibilities: ['Resolve access, device, and app issues', 'Manage accounts and permissions', 'Document fixes and procedures'], engagement: 'Part-time or full-time' },
-      { title: 'Website Maintenance Specialist', description: 'Keeps your site updated, functional, and healthy.', responsibilities: ['Update content, pages, and plugins', 'Monitor uptime and fix breakages', 'Run backups and routine checks'], engagement: 'Part-time' },
-      { title: 'QA Tester', description: 'Finds issues before your customers do with structured, thorough testing.', responsibilities: ['Write and run test cases', 'Report bugs with clear steps', 'Verify fixes and regressions'], engagement: 'Part-time or project-based' },
-      { title: 'Workflow Automation Specialist', description: 'Removes repetitive manual work by connecting your tools and automating steps.', responsibilities: ['Map and automate recurring workflows', 'Build integrations between tools', 'Monitor and maintain automations'], engagement: 'Project-based or part-time' },
-      { title: 'CRM Implementation Specialist', description: 'Sets up and configures your CRM so it fits how you actually work.', responsibilities: ['Configure fields, stages, and workflows', 'Migrate and clean data', 'Document setup and train users'], engagement: 'Project-based' },
-      { title: 'Reporting and Analytics Specialist', description: 'Builds the dashboards and reports that turn your data into decisions.', responsibilities: ['Build dashboards and reports', 'Maintain data accuracy', 'Explain trends clearly'], engagement: 'Part-time or full-time' },
+      { title: 'Sales Process Design', description: 'A clear, repeatable path from first contact to closed deal that your team can follow.', responsibilities: ['Map the stages buyers move through', 'Define what happens at each stage', 'Remove friction that stalls deals'], engagement: 'Project' },
+      { title: 'Pipeline & CRM Setup', description: 'A pipeline and CRM that reflect reality so you can forecast and act with confidence.', responsibilities: ['Design stages, fields, and reporting', 'Clean up and structure existing data', 'Set the habits that keep it accurate'], engagement: 'Project' },
+      { title: 'Outreach & Follow-Up', description: 'A consistent approach to reaching prospects and following up without letting deals go cold.', responsibilities: ['Build messaging and a follow-up cadence', 'Define who to reach and when', 'Keep outreach compliant and on brand'], engagement: 'Advisory or hands-on' },
+      { title: 'Pricing & Offer Review', description: 'A look at how you package and price so each deal is easier to sell and more profitable.', responsibilities: ['Review current pricing and packaging', 'Test clearer, more compelling offers', 'Protect and improve your margins'], engagement: 'Project' },
     ],
   },
   {
-    slug: 'business-ecommerce',
-    title: 'Business Operations & E-commerce',
-    short: 'Keep operations and online stores running: workflows, orders, inventory, reporting, and marketplaces.',
-    examples: 'Operations Coordinator, Order Management, Product Listing',
+    slug: 'operations-systems',
+    title: 'Operations & Systems',
+    short: 'The processes, tools, and systems that let the business grow without everything running through you.',
+    examples: 'Process design, SOPs, tool and automation setup, team and workflow structure',
     intro:
-      'Professionals who keep your operations and online store running: workflow coordination, order administration, inventory support, reporting, process documentation, and marketplace operations, accurately and on time.',
-    caveat: 'We match platform experience to your store and tools. We do not imply every specialist has worked on every platform.',
+      'Growth stalls when the business depends on one person holding everything together. We help you document how the work gets done, choose the right tools, automate the repetitive parts, and build systems that keep running as you scale.',
+    caveat: 'We design processes and advise on tools and systems. Any tool costs, migrations, and ongoing maintenance are scoped and agreed before we begin.',
     icon: ic.ops,
     roles: [
-      { title: 'Operations Coordinator', description: 'Organizes workflows, tracks deliverables, and keeps execution consistent across your team.', responsibilities: ['Track tasks, deadlines, and handoffs', 'Maintain process documentation', 'Coordinate between people and tools'], engagement: 'Full-time' },
-      { title: 'E-commerce Operations Specialist', description: 'Keeps your store’s day to day operations running smoothly.', responsibilities: ['Manage recurring store tasks', 'Coordinate across tools and teams', 'Maintain operational accuracy'], engagement: 'Full-time' },
-      { title: 'Order Management Coordinator', description: 'Owns the order workflow from placement to fulfillment handoff.', responsibilities: ['Process and track orders', 'Resolve order issues', 'Coordinate with fulfillment'], engagement: 'Part-time or full-time' },
-      { title: 'Product Listing Specialist', description: 'Creates and maintains accurate, complete product listings.', responsibilities: ['Create and update listings', 'Maintain product data and images', 'Keep catalogs consistent'], engagement: 'Part-time or full-time' },
-      { title: 'Inventory Coordination Specialist', description: 'Keeps inventory data accurate so stock and listings stay in sync.', responsibilities: ['Track and reconcile inventory', 'Flag low stock and discrepancies', 'Coordinate restock updates'], engagement: 'Part-time or full-time' },
-      { title: 'Marketplace Support Specialist', description: 'Manages your presence and tasks across marketplaces.', responsibilities: ['Maintain marketplace listings', 'Handle marketplace messages and cases', 'Monitor account health'], engagement: 'Part-time or full-time' },
+      { title: 'Process & Workflow Design', description: 'Clear, documented workflows so the right work happens the same way every time.', responsibilities: ['Map how core work gets done today', 'Remove bottlenecks and handoff gaps', 'Document the way it should run'], engagement: 'Project' },
+      { title: 'SOPs & Documentation', description: 'Written procedures that make the business easier to run, delegate, and hand off.', responsibilities: ['Capture key processes as clear SOPs', 'Build a simple, findable library', 'Make delegation and training easier'], engagement: 'Project' },
+      { title: 'Tools & Automation', description: 'The right tools, connected and automated, so your team stops doing work software should.', responsibilities: ['Audit and rationalize your tool stack', 'Automate repetitive manual steps', 'Connect tools so data flows cleanly'], engagement: 'Project' },
+      { title: 'Team & Workflow Structure', description: 'A clearer structure for who owns what, so work does not fall through the cracks.', responsibilities: ['Clarify roles and responsibilities', 'Define handoffs and decision rights', 'Set routines that keep work moving'], engagement: 'Advisory' },
+    ],
+  },
+  {
+    slug: 'analytics-insights',
+    title: 'Analytics & Performance',
+    short: 'The numbers that actually matter, tracked clearly, so decisions are based on data instead of guesswork.',
+    examples: 'KPI dashboards, tracking setup, reporting cadence, performance reviews',
+    intro:
+      'You cannot grow what you cannot see. We help you decide which numbers matter, set up clean tracking and dashboards, and build a reporting rhythm so you always know what is working and what to change.',
+    caveat: 'We help you measure and interpret performance. Tracking accuracy depends on correct setup and the data your tools and platforms provide.',
+    icon: ic.analytics,
+    roles: [
+      { title: 'KPI & Metrics Definition', description: 'A short list of the numbers that actually reflect the health of your business.', responsibilities: ['Choose the few metrics that matter', 'Tie each metric to a goal', 'Set targets and healthy ranges'], engagement: 'Project' },
+      { title: 'Dashboards & Tracking', description: 'Clean dashboards and tracking so your key numbers live in one trustworthy place.', responsibilities: ['Set up tracking and data sources', 'Build clear, readable dashboards', 'Check accuracy before you rely on it'], engagement: 'Project' },
+      { title: 'Reporting Cadence', description: 'A simple, regular reporting rhythm so the whole team sees the same picture.', responsibilities: ['Design weekly or monthly reports', 'Highlight what changed and why', 'Keep reporting light and useful'], engagement: 'Ongoing advisory' },
+      { title: 'Performance Reviews', description: 'Regular reviews that turn the numbers into clear decisions and next moves.', responsibilities: ['Review results against targets', 'Find what to double down on or stop', 'Agree the next set of priorities'], engagement: 'Ongoing advisory' },
+    ],
+  },
+  {
+    slug: 'digital-ecommerce',
+    title: 'Digital & E-commerce Growth',
+    short: 'Help turning your website and online store into a channel that converts and grows.',
+    examples: 'Website and funnel review, conversion, store operations, retention',
+    intro:
+      'Your website and store should be your hardest-working growth channel. We review the full journey from first click to repeat purchase and help you fix the leaks, lift conversion, and build the systems that keep online revenue growing.',
+    caveat: 'We advise on and help improve your digital presence and store. We do not guarantee a specific conversion rate or revenue outcome, which depend on traffic, offer, and execution.',
+    icon: ic.digital,
+    roles: [
+      { title: 'Website & Funnel Review', description: 'A clear read on where your site and funnel lose people, and what to fix first.', responsibilities: ['Walk the full visitor journey', 'Find friction and drop-off points', 'Prioritize the highest-impact fixes'], engagement: 'Project' },
+      { title: 'Conversion Improvement', description: 'Focused changes to turn more of your existing traffic into customers.', responsibilities: ['Sharpen pages, offers, and calls to action', 'Plan and prioritize tests', 'Measure the lift from each change'], engagement: 'Advisory or hands-on' },
+      { title: 'Store Operations', description: 'Smoother store operations so growth does not create chaos behind the scenes.', responsibilities: ['Review orders, catalog, and workflows', 'Tighten the operational back end', 'Document how the store should run'], engagement: 'Project' },
+      { title: 'Retention & Repeat Revenue', description: 'A plan to keep customers coming back and lift the value of each one.', responsibilities: ['Map the post-purchase experience', 'Plan email, loyalty, and win-back', 'Focus on repeat purchase and value'], engagement: 'Project or ongoing' },
     ],
   },
 ];

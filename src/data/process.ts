@@ -1,29 +1,29 @@
-// Three-step managed model
+// Three-step growth consulting engagement
 export const steps = [
   {
     n: 1,
-    title: 'Discover',
-    short: 'We learn your goals, workload, existing processes, and staffing needs.',
-    long: 'We start by understanding your business: your goals, the work that needs coverage, your current processes and tools, and where time is being lost. This is how we scope the right roles rather than assigning a generic assistant.',
+    title: 'Assess',
+    short: 'We dig into your goals, your numbers, and where growth is stalling.',
+    long: 'We start by understanding your business: your goals, your market, how revenue and leads come in today, and where growth is getting stuck. This is how we find the real constraints instead of guessing at surface-level fixes.',
   },
   {
     n: 2,
-    title: 'Build',
-    short: 'We identify the right roles and propose a team structure aligned with your needs.',
-    long: 'We identify suitable roles and develop a proposed team structure that fits your needs. We source experienced professionals, evaluate them against the role, and bring you candidates to interview and select.',
+    title: 'Plan',
+    short: 'We build a prioritized growth plan: the few moves that matter most.',
+    long: 'We turn what we learn into a focused, prioritized plan. Rather than a long list of everything you could do, we identify the few moves most likely to drive growth, with clear owners, milestones, and the metrics we will watch.',
   },
   {
     n: 3,
-    title: 'Manage & Improve',
-    short: 'We coordinate delivery, communication, and performance under an agreed service model.',
-    long: 'Once your team is in place, we coordinate delivery, communication, performance expectations, and workflow improvements under the service model we agree with you. The engagement adjusts as your needs change.',
+    title: 'Execute & Optimize',
+    short: 'We work alongside your team to put the plan in motion, then measure and adjust.',
+    long: 'Plans only matter when they ship. We work alongside your team to put the plan into motion, keep it moving, and review results against the metrics we set. As we learn what works, we double down, cut what does not, and adjust the plan.',
   },
 ];
 
 export const clientResponsibilities = [
-  'Provide timely instructions and clear priorities.',
-  'Grant the system and tool access the role requires.',
-  'Train the professional on your proprietary processes and standards.',
-  'Give approvals and decisions when the work depends on them.',
-  'Share feedback so the engagement keeps improving.',
+  'Share honest context about your goals, numbers, and challenges.',
+  'Give access to the data and tools we need to assess accurately.',
+  'Make decisions and approvals when the plan depends on them.',
+  'Commit the time and people needed to execute the priorities.',
+  'Keep the feedback loop open so we can adjust as we learn.',
 ];

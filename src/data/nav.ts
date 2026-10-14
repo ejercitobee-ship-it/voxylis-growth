@@ -10,12 +10,12 @@ export const footerNav = [
   {
     heading: 'Services',
     links: [
-      { label: 'Customer Experience & Support', href: '/services/customer-experience/' },
-      { label: 'Executive & Administrative', href: '/services/executive-admin/' },
-      { label: 'Sales & Lead Generation', href: '/services/sales/' },
-      { label: 'Marketing & Creative', href: '/services/marketing/' },
-      { label: 'Technical & IT Services', href: '/services/technical/' },
-      { label: 'Business Ops & E-commerce', href: '/services/business-ecommerce/' },
+      { label: 'Growth Strategy & Planning', href: '/services/growth-strategy/' },
+      { label: 'Marketing & Demand Generation', href: '/services/marketing-demand/' },
+      { label: 'Sales & Revenue Growth', href: '/services/sales-revenue/' },
+      { label: 'Operations & Systems', href: '/services/operations-systems/' },
+      { label: 'Analytics & Performance', href: '/services/analytics-insights/' },
+      { label: 'Digital & E-commerce Growth', href: '/services/digital-ecommerce/' },
     ],
   },
   {

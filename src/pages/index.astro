@@ -9,31 +9,31 @@ import { categories } from '../data/services';
 import { industries } from '../data/industries';
 
 const values = [
-  { t: 'Skilled Filipino Talent', b: 'Experienced professionals selected for relevant skills, communication, and professionalism.', i: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M16 11l2 2 4-4"/>' },
-  { t: 'Managed Team Support', b: 'More than a hire. Structured onboarding and ongoing oversight are part of the service.', i: '<path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/>' },
-  { t: 'Role-Specific Expertise', b: 'People matched to clearly defined roles, not interchangeable generalists.', i: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/>' },
-  { t: 'US & UK Business Alignment', b: 'Coverage and communication built around your business hours and standards.', i: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>' },
-  { t: 'Flexible Team Structure', b: 'Start with one role and expand as your needs and budget grow.', i: '<path d="M12 3l8 4-8 4-8-4 8-4z"/><path d="M4 12l8 4 8-4M4 17l8 4 8-4"/>' },
+  { t: 'Focus Over Noise', b: 'We find the few moves that will actually move the needle, instead of a long list of everything you could do.', i: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>' },
+  { t: 'Strategy and Execution', b: 'We do not just hand over a deck. We work alongside your team to put the plan into motion.', i: '<path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/>' },
+  { t: 'Decisions Backed by Data', b: 'We agree on the numbers that matter and track them, so progress is measured, not guessed.', i: '<path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="7"/><rect x="12" y="6" width="3" height="11"/><rect x="17" y="13" width="3" height="4"/>' },
+  { t: 'Built for US & UK Businesses', b: 'An outside partner who understands growing US and UK companies and works the way you do.', i: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>' },
+  { t: 'Start Focused, Scale Up', b: 'Begin with a single project and expand into an ongoing partnership once you see how we work.', i: '<path d="M12 3l8 4-8 4-8-4 8-4z"/><path d="M4 12l8 4 8-4M4 17l8 4 8-4"/>' },
 ];
 
 const principles = [
-  { t: 'The right people for clearly defined roles', b: 'We match experienced professionals to real responsibilities, not a generic task list.' },
-  { t: 'Workflows aligned with your business', b: 'We help document and set up the processes the role runs on, inside your tools.' },
-  { t: 'Structured communication and accountability', b: 'Clear check-ins, reviews, and a straightforward way to raise anything that needs attention.' },
-  { t: 'A flexible approach to changing needs', b: 'As your business shifts, we adjust responsibilities, coverage, and scope with you.' },
+  { t: 'We start with the whole business', b: 'Before tactics, we look at where growth is really stuck, so the plan fixes causes, not symptoms.' },
+  { t: 'We prioritize ruthlessly', b: 'A short list of high-impact moves beats a long list of good intentions. We help you choose.' },
+  { t: 'We stay for the execution', b: 'Plans only matter when they ship. We work alongside your team to make the priorities happen.' },
+  { t: 'We measure and adjust', b: 'We agree the metrics up front, review them on a regular cadence, and change course as we learn.' },
 ];
 ---
 <Base
-  title="Voxylis Growth | Managed Outsourcing & Skilled Filipino Professionals"
-  description="Voxylis Growth connects US and UK businesses with skilled Filipino professionals through a managed outsourcing model built around your goals, workflows, and operational needs."
+  title="Voxylis Growth | Growth Consulting for US & UK Businesses"
+  description="Voxylis Growth is a growth consulting firm that helps US and UK businesses turn ambition into a clear plan and measurable results across strategy, marketing, sales, and operations."
 >
   <!-- A. Hero -->
   <section class="hero hero-bg">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <span class="eyebrow">Filipino Managed Outsourcing</span>
-        <h1>World-Class Talent. Real Business Growth.</h1>
-        <p class="lead">Voxylis Growth connects businesses with skilled Filipino professionals through a managed outsourcing model built around your goals, workflows, and operational needs.</p>
+        <span class="eyebrow">Growth Consulting</span>
+        <h1>Clear Strategy. Real Business Growth.</h1>
+        <p class="lead">Voxylis Growth helps US and UK businesses turn ambition into a focused plan and measurable results, across strategy, marketing, sales, and operations.</p>
         <div class="hero-ctas">
           <Button href="/contact/" variant="primary" arrow>Book a Consultation</Button>
           <a href="/services/" class="textlink">Explore our services <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
@@ -47,7 +47,7 @@ const principles = [
     <div class="wrap">
       <div class="sec-head center reveal">
         <span class="eyebrow">Why Voxylis Growth</span>
-        <h2>A managed partner, built for serious businesses.</h2>
+        <h2>A growth partner, built for serious businesses.</h2>
       </div>
       <div class="grid cols-3" style="margin-top:2.8rem">
         {values.map((v) => (
@@ -65,8 +65,8 @@ const principles = [
     <div class="wrap">
       <div class="sec-head center reveal">
         <span class="eyebrow">Services</span>
-        <h2>Specialized Roles. Real Impact.</h2>
-        <p>Find the right expertise for the work that moves your business forward.</p>
+        <h2>Where We Drive Growth.</h2>
+        <p>Six areas where the right focus turns effort into momentum. Most engagements combine a few of them.</p>
       </div>
       <div class="grid cols-3" style="margin-top:2.8rem">
         {categories.map((c) => <ServiceCard cat={c} />)}
@@ -79,7 +79,7 @@ const principles = [
     <div class="wrap">
       <div class="sec-head center reveal">
         <span class="eyebrow">How It Works</span>
-        <h2>A Better Way to Build Your Team.</h2>
+        <h2>A Clear Path from Goal to Growth.</h2>
       </div>
       <div style="margin-top:2.8rem"><ProcessSteps /></div>
       <div class="reveal" style="text-align:center;margin-top:2.6rem">
@@ -105,12 +105,12 @@ const principles = [
   <section>
     <div class="wrap split">
       <div class="split-img reveal">
-        <img src="/img/why.jpg" width="1200" height="1200" alt="An experienced professional working in a bright modern office" loading="lazy" />
+        <img src="/img/why.jpg" width="1200" height="1200" alt="A professional reviewing growth plans in a bright modern office" loading="lazy" />
       </div>
       <div class="reveal">
-        <span class="eyebrow">A Managed Partnership</span>
-        <h2 style="font-size:clamp(1.9rem,4vw,2.7rem);margin-top:0.9rem">More Than Staffing.</h2>
-        <p class="muted" style="margin:1rem 0 1.8rem;font-size:1.03rem;max-width:52ch">Hiring an individual freelancer leaves the structure to you. A managed partnership brings the structure with the person, so the work actually holds together.</p>
+        <span class="eyebrow">A Real Partnership</span>
+        <h2 style="font-size:clamp(1.9rem,4vw,2.7rem);margin-top:0.9rem">More Than Advice.</h2>
+        <p class="muted" style="margin:1rem 0 1.8rem;font-size:1.03rem;max-width:52ch">A report that sits in a drawer changes nothing. We bring the plan and then stay to help you run it, so the strategy actually turns into growth.</p>
         {principles.map((p, idx) => (
           <div class="principle">
             <span class="pn">0{idx + 1}</span>
@@ -126,17 +126,17 @@ const principles = [
     <div class="wrap">
       <div class="sec-head center reveal">
         <span class="eyebrow">Our Approach</span>
-        <h2>Built Around Your Business. Focused on Your Goals.</h2>
-        <p>We are building Voxylis Growth on real, verifiable work. Rather than borrowed logos or invented numbers, here is exactly how we earn trust from day one.</p>
+        <h2>Honest Work. Focused on Your Goals.</h2>
+        <p>We are building Voxylis Growth on real, verifiable results. Rather than borrowed logos or invented numbers, here is exactly how we earn trust from day one.</p>
       </div>
       <div class="grid cols-3" style="margin-top:2.6rem">
-        <div class="card reveal"><h3 style="font-size:1.2rem">We scope before we staff</h3><p class="muted" style="margin-top:0.5rem;font-size:0.95rem">Every engagement starts by understanding your goals and workflows, so the role fits the work.</p></div>
-        <div class="card reveal"><h3 style="font-size:1.2rem">We onboard into your world</h3><p class="muted" style="margin-top:0.5rem;font-size:0.95rem">Structured onboarding sets up responsibilities, access, and documented procedures from the start.</p></div>
-        <div class="card reveal"><h3 style="font-size:1.2rem">We review and improve</h3><p class="muted" style="margin-top:0.5rem;font-size:0.95rem">Ongoing check-ins and reviews keep quality high, and verified case studies will live here as engagements complete.</p></div>
+        <div class="card reveal"><h3 style="font-size:1.2rem">We diagnose before we prescribe</h3><p class="muted" style="margin-top:0.5rem;font-size:0.95rem">Every engagement starts by understanding your goals and numbers, so the plan fixes the real constraint.</p></div>
+        <div class="card reveal"><h3 style="font-size:1.2rem">We set goals we can measure</h3><p class="muted" style="margin-top:0.5rem;font-size:0.95rem">We agree the metrics that matter up front and track them, so progress is clear and honest.</p></div>
+        <div class="card reveal"><h3 style="font-size:1.2rem">We let the work speak</h3><p class="muted" style="margin-top:0.5rem;font-size:0.95rem">No invented testimonials or results. Verified case studies will live here as engagements complete.</p></div>
       </div>
     </div>
   </section>
 
   <!-- H. Consultation CTA -->
-  <CtaBand eyebrow="Book a Consultation" heading="Let's Build the Right Team for Your Business." text="Tell us where your business needs support. We'll discuss your priorities and explore a team structure that fits." cta="Book a Consultation" />
+  <CtaBand eyebrow="Book a Consultation" heading="Let's Find Your Next Stage of Growth." text="Tell us where your business is trying to go and what is getting in the way. We'll talk through your priorities and where we can help most." cta="Book a Consultation" />
 </Base>

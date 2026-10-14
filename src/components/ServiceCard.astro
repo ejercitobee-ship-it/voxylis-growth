@@ -3,17 +3,17 @@ import type { Category } from '../data/services';
 interface Props { cat: Category; }
 const { cat } = Astro.props;
 const imgMap: Record<string, string> = {
-  'customer-experience': 'cx',
-  'executive-admin': 'admin',
-  sales: 'sales',
-  marketing: 'marketing',
-  technical: 'tech',
-  'business-ecommerce': 'ecom',
+  'growth-strategy': 'strategy',
+  'marketing-demand': 'marketing',
+  'sales-revenue': 'sales',
+  'operations-systems': 'admin',
+  'analytics-insights': 'tech',
+  'digital-ecommerce': 'ecom',
 };
-const img = `/img/svc-${imgMap[cat.slug] ?? 'cx'}.jpg`;
+const img = `/img/svc-${imgMap[cat.slug] ?? 'strategy'}.jpg`;
 ---
 <a href={`/services/${cat.slug}/`} class="svc-card reveal">
-  <div class="svc-photo"><img src={img} width="900" height="560" alt={`${cat.title} professionals at work`} loading="lazy" /></div>
+  <div class="svc-photo"><img src={img} width="900" height="560" alt={cat.title} loading="lazy" /></div>
   <div class="svc-body">
     <h3>{cat.title}</h3>
     <p>{cat.short}</p>

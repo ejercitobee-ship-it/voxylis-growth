@@ -14,7 +14,7 @@ const contactHref = `/contact/?service=${encodeURIComponent(cat.title)}`;
 ---
 <Base
   title={`${cat.title} | Voxylis Growth`}
-  description={`${cat.short} Skilled Filipino professionals for US and UK businesses, matched to your requirements with structured onboarding and oversight.`}
+  description={`${cat.short} Growth consulting for US and UK businesses, scoped around your goals.`}
 >
   <section>
     <div class="wrap">
@@ -34,8 +34,8 @@ const contactHref = `/contact/?service=${encodeURIComponent(cat.title)}`;
   <section class="band">
     <div class="wrap">
       <div class="sec-head reveal">
-        <h2>Roles we place.</h2>
-        <p>Example roles in {cat.title.toLowerCase()}. Each is matched to your responsibilities and scoped with you.</p>
+        <h2>What this includes.</h2>
+        <p>Typical ways we help with {cat.title.toLowerCase()}. Each is scoped with you to fit your goals and stage.</p>
       </div>
       <div class="grid cols-3" style="margin-top:2.6rem">
         {cat.roles.map((role) => <RoleCard role={role} contactHref={contactHref} />)}
@@ -53,5 +53,5 @@ const contactHref = `/contact/?service=${encodeURIComponent(cat.title)}`;
     </div>
   </section>
 
-  <CtaBand heading={`Need ${cat.title.toLowerCase()} support?`} text="Tell us the role and what success looks like. We will put together a proposal shaped around scope and seniority." cta="Book a Consultation" href={contactHref} />
+  <CtaBand heading={`Want help with ${cat.title.toLowerCase()}?`} text="Tell us your goal and what is getting in the way. We will put together a proposal shaped around scope and impact." cta="Book a Consultation" href={contactHref} />
 </Base>

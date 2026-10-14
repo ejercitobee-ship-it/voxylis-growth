@@ -5,21 +5,21 @@ import CtaBand from '../../components/CtaBand.astro';
 import { categories } from '../../data/services';
 
 const models = [
-  { t: 'Dedicated remote staffing', b: 'A professional who works consistently inside your business, matched to a defined role and your standards.' },
-  { t: 'Managed outsourcing', b: 'Dedicated talent plus the structure around it: onboarding, documented workflows, and ongoing service oversight.' },
-  { t: 'Role-based team expansion', b: 'Add specific roles as demand grows, from one professional to a small team, without rebuilding your process each time.' },
+  { t: 'Advisory', b: 'We build the plan and guide your team to run it, with regular reviews to keep it on track.' },
+  { t: 'Hands-on', b: 'We work inside the business to put the plan in motion, alongside the people you already have.' },
+  { t: 'Project or ongoing', b: 'Start with a focused project like a growth audit, then expand into an ongoing partnership as it makes sense.' },
 ];
 ---
 <Base
-  title="Services & Talent Solutions | Voxylis Growth"
-  description="Skilled Filipino professionals organized by business function: customer experience, executive and administrative, sales, marketing, technical, and business operations and e-commerce."
+  title="Growth Consulting Services | Voxylis Growth"
+  description="Growth consulting across strategy, marketing, sales, operations, analytics, and digital, for growing US and UK businesses."
 >
   <section class="band-dark">
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow" style="display:block;margin-bottom:0.8rem">Services</span>
-        <h1 style="font-size:clamp(2rem,4.5vw,3rem)">Specialized Roles. Real Impact.</h1>
-        <p>Find the right expertise for the work that moves your business forward. Every role is matched to your requirements, scoped with you, and supported through structured onboarding and ongoing oversight.</p>
+        <h1 style="font-size:clamp(2rem,4.5vw,3rem)">Focused Help, Where Growth Happens.</h1>
+        <p>Six areas where the right focus turns effort into momentum. Every engagement is scoped with you, and most combine a few of these to fit what your business actually needs.</p>
       </div>
       <div class="grid cols-3" style="margin-top:2.8rem">
         {categories.map((c) => <ServiceCard cat={c} />)}
@@ -31,7 +31,7 @@ const models = [
     <div class="wrap">
       <div class="sec-head center reveal">
         <h2>Three ways to work with us.</h2>
-        <p>Different businesses need different arrangements. We help you choose the one that fits.</p>
+        <p>Different businesses need different kinds of help. We agree which fits before we begin.</p>
       </div>
       <div class="grid cols-3" style="margin-top:2.6rem">
         {models.map((m) => (
@@ -42,10 +42,10 @@ const models = [
         ))}
       </div>
       <p class="muted reveal" style="max-width:70ch;margin:2.2rem auto 0;text-align:center;font-size:0.95rem">
-        Scope and service levels are agreed per engagement. We do not assume that every arrangement includes unlimited management, round the clock coverage, backup personnel, or guaranteed replacements. We define exactly what is included before we begin.
+        Scope and deliverables are agreed per engagement. We do not promise specific revenue figures or guaranteed outcomes. We define exactly what is included, and the metrics we will track, before we begin.
       </p>
     </div>
   </section>
 
-  <CtaBand heading="Not sure which roles you need?" text="Tell us about your business and the work that keeps piling up. We will help you scope the right roles." cta="Book a Consultation" />
+  <CtaBand heading="Not sure where to focus?" text="Tell us about your business and where growth feels stuck. We will help you find the few moves that matter most." cta="Book a Consultation" />
 </Base>

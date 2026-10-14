@@ -2,11 +2,10 @@
 export const company = {
   name: 'Voxylis Growth',
   legalName: 'Voxylis Growth', // editable, update when the legal entity is confirmed
-  tagline: 'Experienced Talent. Reliable Operations. Room to Grow.',
+  tagline: 'Clear Strategy. Focused Execution. Real Growth.',
   pitch:
-    'Voxylis Growth helps US and UK businesses build dependable remote teams by connecting them with experienced Filipino professionals, supported by structured onboarding, clear processes, and ongoing operational oversight.',
+    'Voxylis Growth is a growth consulting firm that helps US and UK businesses turn ambition into a clear plan and measurable results across strategy, marketing, sales, and operations.',
   market: 'United States and United Kingdom',
-  talentLocation: 'Philippines',
 
   // Configurable business contact details. Replace placeholders when confirmed.
   email: 'hello@voxylisgrowth.com', // placeholder business email
@@ -18,7 +17,7 @@ export const company = {
   form: {
     endpoint: 'https://api.web3forms.com/submit',
     web3formsKey: 'f5e1c514-d43c-440d-b505-ca843cbc6524',
-    subject: 'New Voxylis Growth inquiry (Build Your Team)',
+    subject: 'New Voxylis Growth consultation request',
   },
 
   get year() {

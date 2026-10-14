@@ -1,6 +1,6 @@
 ---
-import type { Role } from '../data/services';
-interface Props { role: Role; contactHref: string; }
+import type { Offering } from '../data/services';
+interface Props { role: Offering; contactHref: string; }
 const { role, contactHref } = Astro.props;
 ---
 <div class="card role-card reveal">
@@ -12,7 +12,7 @@ const { role, contactHref } = Astro.props;
     ))}
   </ul>
   <div class="engage">{role.engagement}</div>
-  <a class="role-cta" href={contactHref}>Discuss this role
+  <a class="role-cta" href={contactHref}>Discuss this
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:3px"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
   </a>
 </div>
